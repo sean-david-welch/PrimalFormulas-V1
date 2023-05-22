@@ -1,0 +1,56 @@
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100vw;
+    padding: 1rem;
+    background-color: var(--dark-color);
+    border-top: 0.15rem solid var(--black-color);
+    transition: all 600ms ease-in-out;
+}
+
+footer:hover {
+    border-top: 0.15rem solid var(--gold-color);
+}
+
+footer #logo {
+    max-width: 10rem;
+    transition: all 600ms ease-in-out;
+}
+
+footer #logo:hover {
+    transform: scale(1.025);
+}
+
+footer .nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 1.35rem;
+    font-weight: 200;
+    margin: 1rem auto;
+    padding: 0.25rem 1rem 1.5rem 1rem;
+    border-bottom: 2px solid var(--black-color);
+    transition: all 600ms ease-in-out;
+}
+
+footer .nav-list a {
+    position: relative;
+    transition: all 600ms ease-in-out;
+    border-radius: 1rem;
+    font-weight: 400;
+    padding: 0.5rem 2rem;
+    border: 2px solid var(--dark-color);
+}
+
+footer .nav-list a:hover {
+    color: var(--dark-color);
+    background-color: var(--gold-color);
+    border: 2px solid var(--black-color);
+}
+
+footer .socials {
+    margin: 0 0.75rem;
+    line-height: 100px;
+    text-align: center;
+    transition: all 0.3s linear;
+}

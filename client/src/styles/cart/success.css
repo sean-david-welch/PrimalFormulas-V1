@@ -1,0 +1,43 @@
+#success .logo-heading {
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+#success .success-message {
+    background-color: var(--dark-color);
+    margin: 2.5rem 15rem;
+    padding: 2rem;
+    border: 2px solid var(--grey-color);
+    border-radius: 0.5rem;
+    transition: all 600ms ease-in-out;
+}
+
+#success .success-message:hover {
+    border: 2px solid var(--gold-color);
+}
+
+#success .success-message img {
+    display: flex;
+    margin: 0 auto;
+    max-width: 7.5rem;
+    transition: all 600ms ease-in-out;
+}
+
+#success .success-message img:hover {
+    transform: scale(1.025);
+}
+
+#success .success-message p {
+    font-size: 1.25rem;
+    font-family: 500;
+    margin: 0.5rem;
+}
+
+#success .success-message .section-heading {
+    color: var(--light-color);
+    font-size: 1.5rem;
+    margin: 1rem;
+}
