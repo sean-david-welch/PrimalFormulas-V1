@@ -62,7 +62,10 @@ from database import (
 app = FastAPI()
 
 app.mount("/images", StaticFiles(directory="images"), name="images")
-origins = ["http://localhost:3000", "http://localhost:5000", "http://localhost:8000", "https://primalformulas-server-production.up.railway.app/"]
+origins = [
+    "http://localhost:8000",
+    "https://primalformulas-server-production.up.railway.app/",
+]
 
 app.add_middleware(
     CORSMiddleware,
