@@ -61,7 +61,7 @@ from database import (
 
 app = FastAPI()
 
-app.mount("/images", StaticFiles(directory="images"), name="images")
+# app.mount("/images", StaticFiles(directory="images"), name="images")
 origins = [
     "http://localhost:8000",
     "https://primalformulas-server-production.up.railway.app/",
@@ -74,23 +74,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-
-#######################
-#### API Endpoints ####
-#######################
-@app.exception_handler(RequestValidationError)
-async def validation_exception_handler(exc):
-    print("Validation error:", exc.errors())
-    return JSONResponse(
-        {"detail": "Request validation failed", "errors": exc.errors()},
-        status_code=422,
-    )
-
-
-@app.exception_handler(RequestValidationError)
-async def validation_exception_handler(request: Request, exc: RequestValidationError):
-    return PlainTextResponse(str(exc), status_code=400)
 
 
 ########################
