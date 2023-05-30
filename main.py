@@ -1,12 +1,13 @@
-from fastapi import FastAPI, status, Request, Response, Depends, Body
-from fastapi.exceptions import RequestValidationError, HTTPException
-from fastapi.responses import RedirectResponse, JSONResponse, PlainTextResponse
+from fastapi import FastAPI, status, Request, Response, Depends
+from fastapi.exceptions import HTTPException
+from fastapi.responses import RedirectResponse, JSONResponse
 from fastapi.security import OAuth2PasswordRequestForm
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from datetime import timedelta
 from config import settings
 import stripe
+import logging
 
 
 from utils import (
@@ -59,13 +60,17 @@ from database import (
     get_user_by_id,
 )
 
-app = FastAPI(debug=True)
+app = FastAPI()
+logging.basicConfig(level=logging.DEBUG)
 
-# app.mount("/images", StaticFiles(directory="images"), name="images")
+
+app.mount("/images", StaticFiles(directory="images"), name="images")
 origins = [
     "https://primalformulas-server-production.up.railway.app/",
     "http://localhost:8000",
     "http://0.0.0.0:80",
+    "http://localhost:3000",
+    "http://localhost:5000",
 ]
 
 app.add_middleware(
@@ -82,6 +87,10 @@ app.add_middleware(
 ########################
 @app.get("/")
 def root() -> RedirectResponse:
+    logging.debug("Debug level log")
+    logging.info("Info level log")
+    logging.warning("Warning level log")
+    logging.error("Error level log")
     return RedirectResponse(url="/docs")
 
 
