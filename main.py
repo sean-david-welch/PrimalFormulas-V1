@@ -59,7 +59,7 @@ from database import (
     get_user_by_id,
 )
 
-app = FastAPI()
+app = FastAPI(debug=True)
 
 # app.mount("/images", StaticFiles(directory="images"), name="images")
 origins = [
