@@ -87,11 +87,15 @@ app.add_middleware(
 ########################
 @app.get("/")
 def root() -> RedirectResponse:
-    logging.debug("Debug level log")
-    logging.info("Info level log")
-    logging.warning("Warning level log")
-    logging.error("Error level log")
-    return RedirectResponse(url="/docs")
+    try:
+        logging.debug("Debug level log")
+        logging.info("Info level log")
+        logging.warning("Warning level log")
+        logging.error("Error level log")
+        return RedirectResponse(url="/docs")
+    except Exception as e:
+        logging.error("An error occurred", exc_info=True)
+        raise
 
 
 ########################
