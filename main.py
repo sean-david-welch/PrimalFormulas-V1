@@ -95,6 +95,7 @@ def root() -> RedirectResponse:
         return RedirectResponse(url="/docs")
     except Exception as e:
         logging.error("An error occurred", exc_info=True)
+        print(e)
         raise
 
 
