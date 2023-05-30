@@ -63,8 +63,9 @@ app = FastAPI()
 
 # app.mount("/images", StaticFiles(directory="images"), name="images")
 origins = [
-    "http://localhost:8000",
     "https://primalformulas-server-production.up.railway.app/",
+    "http://localhost:8000",
+    "http://0.0.0.0:80",
 ]
 
 app.add_middleware(
