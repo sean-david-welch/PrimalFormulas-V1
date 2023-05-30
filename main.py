@@ -71,6 +71,7 @@ origins = [
     "http://0.0.0.0:80",
     "http://localhost:3000",
     "http://localhost:5000",
+    "https://primalformulas-client-production.up.railway.app/",
 ]
 
 app.add_middleware(
