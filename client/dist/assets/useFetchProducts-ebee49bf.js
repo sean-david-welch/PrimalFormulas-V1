@@ -1,0 +1,1 @@
+import{e as u}from"./Layout-00d27bdb.js";import{u as d}from"./index-5d20dca2.js";const f=o=>{const{endpoint:t,isSingleProduct:e=!1}=o,r=async()=>{const s=await u({endpoint:t,method:"GET"});return e?[s]:s},{data:a,error:c,isLoading:n}=d(["products",t,e],r,{retry:!1,staleTime:1e3*60*10*24});return{products:a,error:c,loading:n}};export{f as u};

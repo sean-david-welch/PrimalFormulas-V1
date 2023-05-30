@@ -1,0 +1,1 @@
+import{j as s}from"./index-5d20dca2.js";import{N as o}from"./Layout-00d27bdb.js";const l=({headingText:e,buttonLabel:n,buttonUrl:t,buttonIcon:a,onClick:i})=>s.jsxs(s.Fragment,{children:[s.jsx("h2",{className:"section-heading",children:e}),s.jsx("ul",{className:"nav-list",children:s.jsx(o,{onClick:i,to:t,icon:a,label:n})})]});export{l as S};

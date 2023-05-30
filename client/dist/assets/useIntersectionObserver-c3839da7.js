@@ -1,0 +1,1 @@
+import{r as o}from"./index-5d20dca2.js";const a=e=>{o.useEffect(()=>{if(!e.current)return;const r=new IntersectionObserver(n=>{n.forEach(s=>{s.isIntersecting&&s.target.classList.add("show")})}),t=e.current;return r.observe(t),()=>{r.unobserve(t)}},[e])};export{a as u};

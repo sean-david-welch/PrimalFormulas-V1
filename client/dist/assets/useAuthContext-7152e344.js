@@ -1,0 +1,1 @@
+import{r as i,A as p}from"./index-5d20dca2.js";const d=()=>{const t=i.useContext(p);if(!t)throw new Error("useAuth must be used within an AuthProvider");const{isLoggedIn:e,isSuperUser:s,loginAttempted:r,setIsLoggedIn:o,setLoginAttempted:n,setIsSuperUser:u}=t;return{isLoggedIn:e,isSuperUser:s,loginAttempted:r,setIsLoggedIn:o,setLoginAttempted:n,setIsSuperUser:u}};export{d as u};
