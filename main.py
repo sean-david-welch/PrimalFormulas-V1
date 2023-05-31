@@ -72,6 +72,7 @@ origins = [
     "http://localhost:3000",
     "http://localhost:5000",
     "https://primalformulas-client-production.up.railway.app/",
+    "https://primal-formulas-client-hrkg.vercel.app/",
 ]
 
 app.add_middleware(
