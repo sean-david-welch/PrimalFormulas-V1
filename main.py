@@ -227,6 +227,9 @@ async def login(response: Response, form_data: OAuth2PasswordRequestForm = Depen
         key="access_token",
         value=access_token,
         httponly=True,
+        max_age=ACCESS_TOKEN_EXPIRE_MINUTES,
+        expires=ACCESS_TOKEN_EXPIRE_MINUTES,
+        secure=True,
     )
 
     return {"access_token": access_token, "token_type": "bearer"}
