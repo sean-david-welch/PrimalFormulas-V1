@@ -4,7 +4,7 @@ from fastapi.responses import RedirectResponse, JSONResponse
 from fastapi.security import OAuth2PasswordRequestForm
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from datetime import timedelta, timezone, datetime
+from datetime import timedelta
 from config import settings
 import os
 import boto3
@@ -242,8 +242,6 @@ async def login(response: Response, form_data: OAuth2PasswordRequestForm = Depen
         key="access_token",
         value=access_token,
         httponly=True,
-        max_age=int(ACCESS_TOKEN_EXPIRE_MINUTES) * 60,
-        expires=datetime.now(timezone.utc) + access_token_expires,
         secure=is_production,
     )
 
@@ -386,8 +384,8 @@ async def create_checkout_session(
                             "description": product["description"],
                             "images": [product["image"]],
                         },
-                        "tax_behavior": "inclusive",
                         "unit_amount": int(product["price"] * 100),
+                        "tax_behavior": "inclusive",
                     },
                     "quantity": body.quantity,
                 }
