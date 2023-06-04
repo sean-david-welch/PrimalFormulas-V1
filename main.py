@@ -70,6 +70,7 @@ origins = [
 
 if os.getenv("ENV") == "production":
     print("Running in production mode")
+    origins.append("https://primalformulas.ie")
     origins.append("https://primalformulas-server-production.up.railway.app")
     origins.append("https://primal-formulas-client-hrkg.vercel.app")
     origins.append("https://primal-formulas-client-hrkg-sean-david-welch.vercel.app")
