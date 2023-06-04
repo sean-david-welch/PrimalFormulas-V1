@@ -385,6 +385,7 @@ async def create_checkout_session(
                             "name": product["name"],
                             "description": product["description"],
                             "images": [product["image"]],
+                            "tax_behavior": "inclusive",
                         },
                         "unit_amount": int(product["price"] * 100),
                     },
