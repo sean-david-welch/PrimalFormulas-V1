@@ -97,7 +97,7 @@ def root() -> RedirectResponse:
         logging.info("Info level log")
         logging.warning("Warning level log")
         logging.error("Error level log")
-        return RedirectResponse(url="/docs")
+        return {"message": "Hello World!"}
     except Exception as e:
         logging.error("An error occurred", exc_info=True)
         print(e)
