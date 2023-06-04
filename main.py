@@ -73,6 +73,9 @@ if os.getenv("ENV") == "production":
     origins.append("https://primalformulas-server-production.up.railway.app")
     origins.append("https://primal-formulas-client-hrkg.vercel.app")
     origins.append("https://primal-formulas-client-hrkg-sean-david-welch.vercel.app")
+    origins.append(
+        "https://primal-formulas-client-hrkg-e3et4ay3f-sean-david-welch.vercel.app"
+    )
 else:
     print("Running in development mode")
     origins.append("http://localhost:5000")
