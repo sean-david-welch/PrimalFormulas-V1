@@ -88,6 +88,7 @@ if os.getenv("ENV") == "production":
     origins.append(
         "https://primal-formulas-client-hrkg-e3et4ay3f-sean-david-welch.vercel.app"
     )
+
 else:
     print("Running in development mode")
     origins.append("http://localhost:5000")
@@ -242,7 +243,7 @@ async def login(response: Response, form_data: OAuth2PasswordRequestForm = Depen
         key="access_token",
         value=access_token,
         httponly=True,
-        secure=is_production,
+        # secure=is_production,
     )
 
     return {"access_token": access_token, "token_type": "bearer"}
