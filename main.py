@@ -19,7 +19,6 @@ from utils import (
     process_payment_intent,
 )
 
-
 from security import (
     ACCESS_TOKEN_EXPIRE_MINUTES,
     get_password_hash,
