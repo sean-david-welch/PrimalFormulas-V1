@@ -8,7 +8,6 @@ from datetime import timedelta, datetime
 from config import settings
 import os
 import stripe
-import logging
 
 
 from utils import (
@@ -62,8 +61,6 @@ from database import (
 )
 
 app = FastAPI()
-logging.basicConfig(level=logging.DEBUG)
-
 
 app.mount("/images", StaticFiles(directory="images"), name="images")
 origins = [
@@ -94,16 +91,7 @@ app.add_middleware(
 ########################
 @app.get("/")
 def root() -> RedirectResponse:
-    try:
-        logging.debug("Debug level log")
-        logging.info("Info level log")
-        logging.warning("Warning level log")
-        logging.error("Error level log")
-        return RedirectResponse(url="/docs")
-    except Exception as e:
-        logging.error("An error occurred", exc_info=True)
-        print(e)
-        raise
+    return RedirectResponse(url="/docs")
 
 
 ########################

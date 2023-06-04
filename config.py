@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 import os
 
 env = os.getenv("ENV")
-if env == "PRODUCTION":
+if env == "production":
     load_dotenv(".env.production")
 else:
     load_dotenv(".env")
