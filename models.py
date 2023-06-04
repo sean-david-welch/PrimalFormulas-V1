@@ -7,7 +7,7 @@ from uuid import uuid4
 ##### Static Content #####
 class StaticContent(BaseModel):
     name: str
-    content: str = Field(default=f"{settings.BASE_URL}/images/default.jpg")
+    content: str = Field(default=f"{settings['BASE_URL']}/images/default.jpg")
 
 
 ##### About Content #####
@@ -15,7 +15,7 @@ class AboutContent(BaseModel):
     id: Optional[str] = Field(default_factory=uuid4, example="null")
     title: str
     description: str
-    image: str = Field(default=f"{settings.BASE_URL}/images/default.jpg")
+    image: str = Field(default=f"{settings['BASE_URL']}/images/default.jpg")
 
 
 ##### Products #####
@@ -24,14 +24,14 @@ class Product(BaseModel):
     name: str = Field(default="Product")
     description: str = Field(default="Product description")
     price: float = Field(default=1.0)
-    image: str = Field(default=f"{settings.BASE_URL}/images/default.jpg")
+    image: str = Field(default=f"{settings['BASE_URL']}/images/default.jpg")
 
 
 class ProductUpdate(BaseModel):
     name: str = Field(default="Product")
     description: str = Field(default="Product description")
     price: float = Field(default=1.0)
-    image: str = Field(default=f"{settings.BASE_URL}/images/default.jpg")
+    image: str = Field(default=f"{settings['BASE_URL']}/images/default.jpg")
 
 
 ##### Stripe #####
