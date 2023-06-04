@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from datetime import timedelta, datetime
 from config import settings
+import logging
 import os
 import stripe
 
@@ -61,6 +62,7 @@ from database import (
 )
 
 app = FastAPI()
+logging.basicConfig(level=logging.DEBUG)
 
 app.mount("/images", StaticFiles(directory="images"), name="images")
 origins = [
@@ -92,12 +94,15 @@ app.add_middleware(
 @app.get("/")
 def root() -> RedirectResponse:
     try:
+        logging.debug("Debug level log")
+        logging.info("Info level log")
+        logging.warning("Warning level log")
+        logging.error("Error level log")
         return RedirectResponse(url="/docs")
     except Exception as e:
+        logging.error("An error occurred", exc_info=True)
         print(e)
-        return JSONResponse(
-            content={"error": str(e)}, status_code=status.HTTP_400_BAD_REQUEST
-        )
+        raise
 
 
 ########################
