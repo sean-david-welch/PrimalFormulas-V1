@@ -24,7 +24,7 @@ export const Hero = () => {
     return (
         <div className="hero">
             <div className="overlay" />
-            <video src={hero} autoPlay loop muted />
+            <video src={hero} autoPlay loop muted playsInline />
             <div className="hero-content">
                 <h1 className="hero-head">
                     The foundation for Health & Performance
