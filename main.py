@@ -91,7 +91,13 @@ app.add_middleware(
 ########################
 @app.get("/")
 def root() -> RedirectResponse:
-    return RedirectResponse(url="/docs")
+    try:
+        return RedirectResponse(url="/docs")
+    except Exception as e:
+        print(e)
+        return JSONResponse(
+            content={"error": str(e)}, status_code=status.HTTP_400_BAD_REQUEST
+        )
 
 
 ########################
