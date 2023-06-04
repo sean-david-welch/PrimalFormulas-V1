@@ -1,7 +1,11 @@
 from dotenv import load_dotenv
-
-load_dotenv()
 import os
+
+env = os.getenv("ENV")
+if env == "PRODUCTION":
+    load_dotenv(".env.production")
+else:
+    load_dotenv(".env")
 
 settings = {
     "SECRET_KEY": os.getenv("SECRET_KEY"),

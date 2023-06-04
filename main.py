@@ -4,8 +4,9 @@ from fastapi.responses import RedirectResponse, JSONResponse
 from fastapi.security import OAuth2PasswordRequestForm
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from datetime import timedelta
+from datetime import timedelta, datetime
 from config import settings
+import os
 import stripe
 import logging
 
@@ -66,15 +67,18 @@ logging.basicConfig(level=logging.DEBUG)
 
 app.mount("/images", StaticFiles(directory="images"), name="images")
 origins = [
-    "https://primalformulas-server-production.up.railway.app/",
     "http://localhost:8000",
-    "http://0.0.0.0:80",
     "http://localhost:3000",
-    "http://localhost:5000",
-    "https://primalformulas-client-production.up.railway.app/",
-    "https://primal-formulas-client-hrkg.vercel.app/",
-    "https://primal-formulas-client-hrkg-sean-david-welch.vercel.app/",
 ]
+
+if os.getenv("ENV") == "production":
+    print("Running in production mode")
+    origins.append("https://primalformulas-server-production.up.railway.app/")
+    origins.append("https://primal-formulas-client-hrkg.vercel.app/")
+    origins.append("https://primal-formulas-client-hrkg-sean-david-welch.vercel.app/")
+else:
+    print("Running in development mode")
+    origins.append("http://localhost:5000")
 
 app.add_middleware(
     CORSMiddleware,
@@ -223,13 +227,15 @@ async def login(response: Response, form_data: OAuth2PasswordRequestForm = Depen
         data={"sub": user.username}, expires_delta=access_token_expires
     )
 
+    is_production = os.getenv("ENV") == "PRODUCTION"
+
     response.set_cookie(
         key="access_token",
         value=access_token,
         httponly=True,
-        max_age=ACCESS_TOKEN_EXPIRE_MINUTES,
-        expires=ACCESS_TOKEN_EXPIRE_MINUTES,
-        secure=True,
+        max_age=int(ACCESS_TOKEN_EXPIRE_MINUTES) * 60,
+        expires=datetime.utcnow() + access_token_expires,
+        secure=is_production,
     )
 
     return {"access_token": access_token, "token_type": "bearer"}
