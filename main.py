@@ -4,11 +4,12 @@ from fastapi.responses import RedirectResponse, JSONResponse
 from fastapi.security import OAuth2PasswordRequestForm
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from datetime import timedelta, datetime
+from datetime import timedelta, timezone, datetime
 from config import settings
-import logging
 import os
+import boto3
 import stripe
+import logging
 
 
 from utils import (
@@ -61,6 +62,13 @@ from database import (
 )
 
 app = FastAPI()
+
+s3 = boto3.client(
+    "s3",
+    aws_access_key_id=settings["AWS_ACCESS_KEY_ID"],
+    aws_secret_access_key=settings["AWS_SECRET_ACCESS_KEY"],
+)
+BUCKET_NAME = "primalformulas-bucket"
 
 app.mount("/images", StaticFiles(directory="images"), name="images")
 origins = [
@@ -235,7 +243,7 @@ async def login(response: Response, form_data: OAuth2PasswordRequestForm = Depen
         value=access_token,
         httponly=True,
         max_age=int(ACCESS_TOKEN_EXPIRE_MINUTES) * 60,
-        expires=datetime.utcnow() + access_token_expires,
+        expires=datetime.now(timezone.utc) + access_token_expires,
         secure=is_production,
     )
 
