@@ -76,10 +76,8 @@ origins = [
     "https://www.primalformulas.ie",
     "https://primalformulas.eu",
     "https://www.primalformulas.eu",
+    "https://primal-formulas.vercel.app",
     "https://primalformulas-server-production.up.railway.app",
-    "https://primal-formulas-client-hrkg.vercel.app",
-    "https://primal-formulas-client-hrkg-sean-david-welch.vercel.app",
-    "https://primal-formulas-client-hrkg-e3et4ay3f-sean-david-welch.vercel.app",
 ]
 
 app.add_middleware(
@@ -358,7 +356,7 @@ async def create_checkout_session(
     product_id: str, body: CheckoutSessionInput
 ) -> JSONResponse:
     stripe.api_key = settings["STRIPE_SECRET_KEY"]
-    frontend_url = "http://localhost:3000/"
+    frontend_url = "https://www.primalformulas.ie/"
     product = await fetch_product(product_id)
 
     try:
