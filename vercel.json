@@ -1,0 +1,4 @@
+{
+    "routes": [{ "src": "/(.*)", "dest": "/index.html" }],
+    "regions": ["eu-west-1"]
+}
