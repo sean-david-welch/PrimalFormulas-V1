@@ -72,26 +72,15 @@ BUCKET_NAME = "primalformulas-bucket"
 
 app.mount("/images", StaticFiles(directory="images"), name="images")
 origins = [
-    "http://localhost:8000",
-    "http://localhost:3000",
+    "https://primalformulas.ie",
+    "https://www.primalformulas.ie",
+    "https://primalformulas.eu",
+    "https://www.primalformulas.eu",
+    "https://primalformulas-server-production.up.railway.app",
+    "https://primal-formulas-client-hrkg.vercel.app",
+    "https://primal-formulas-client-hrkg-sean-david-welch.vercel.app",
+    "https://primal-formulas-client-hrkg-e3et4ay3f-sean-david-welch.vercel.app",
 ]
-
-if os.getenv("ENV") == "production":
-    print("Running in production mode")
-    origins.append("https://primalformulas.ie")
-    origins.append("https://www.primalformulas.ie")
-    origins.append("https://primalformulas.eu")
-    origins.append("https://www.primalformulas.eu")
-    origins.append("https://primalformulas-server-production.up.railway.app")
-    origins.append("https://primal-formulas-client-hrkg.vercel.app")
-    origins.append("https://primal-formulas-client-hrkg-sean-david-welch.vercel.app")
-    origins.append(
-        "https://primal-formulas-client-hrkg-e3et4ay3f-sean-david-welch.vercel.app"
-    )
-
-else:
-    print("Running in development mode")
-    origins.append("http://localhost:5000")
 
 app.add_middleware(
     CORSMiddleware,
@@ -237,13 +226,12 @@ async def login(response: Response, form_data: OAuth2PasswordRequestForm = Depen
         data={"sub": user.username}, expires_delta=access_token_expires
     )
 
-    is_production = os.getenv("ENV") == "PRODUCTION"
-
     response.set_cookie(
         key="access_token",
         value=access_token,
         httponly=True,
-        # secure=is_production,
+        secure=True,
+        samesite="None",
     )
 
     return {"access_token": access_token, "token_type": "bearer"}
@@ -255,7 +243,7 @@ async def logout(response: Response):
     return {"message": "Logged out successfully"}
 
 
-@app.get("/api/current_user", response_model=User)
+@app.get("/api/current-user", response_model=User)
 async def return_current_user(current_user: User = Depends(get_current_user)):
     return current_user
 
