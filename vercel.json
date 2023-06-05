@@ -1,3 +1,4 @@
 {
-    "regions": ["dub1"]
+    "regions": ["dub1"],
+    "rewrites": [{ "source": "/:path*", "destination": "/index.html" }]
 }
