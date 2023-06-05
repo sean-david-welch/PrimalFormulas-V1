@@ -5,6 +5,5 @@ export default defineConfig({
     plugins: [react()],
     server: {
         port: 3000,
-        // "serve": "vite preview --port 5000",
     },
 });
