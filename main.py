@@ -70,7 +70,6 @@ s3 = boto3.client(
 )
 BUCKET_NAME = "primalformulas-bucket"
 
-app.mount("/images", StaticFiles(directory="images"), name="images")
 origins = [
     "https://primalformulas.ie",
     "https://www.primalformulas.ie",
