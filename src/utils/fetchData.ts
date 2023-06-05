@@ -6,6 +6,13 @@ axios.defaults.baseURL = API_BASE_URL;
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 const fetchData = async (options: FetchDataOptions) => {
+    axios.interceptors.request.use(request => {
+        if (request.url && !request.url.startsWith('https://')) {
+            request.url = request.url.replace('http://', 'https://');
+        }
+        return request;
+    });
+
     const { endpoint, method, data } = options;
 
     try {
