@@ -1,3 +1,7 @@
 .venv/
 images/
 files.txt
+.env
+.env
+lib
+lib/

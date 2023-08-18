@@ -22,6 +22,7 @@ idna==3.4
 itsdangerous==2.1.2
 Jinja2==3.1.2
 jmespath==1.0.1
+magnum==16.0.0
 MarkupSafe==2.1.2
 motor==3.1.2
 orjson==3.8.10

@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from datetime import timedelta
 from config import settings
-import os
+from mangum import Mangum
 import boto3
 import stripe
 import logging
