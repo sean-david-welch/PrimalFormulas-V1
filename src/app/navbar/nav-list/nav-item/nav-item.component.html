@@ -1,0 +1,11 @@
+<li class="nav-item">
+    <a [href]="link" class="nav-list-item" (mouseenter)="toggleHover()" (mouseleave)="toggleHover()">
+        {{ title }}
+    </a>
+    <ul class="nav-drop" [ngClass]="{ 'nav-drop-active': hover }" (mouseenter)="toggleHover()"
+        (mouseleave)="toggleHover()">
+        <ng-content>
+
+        </ng-content>
+    </ul>
+</li>
