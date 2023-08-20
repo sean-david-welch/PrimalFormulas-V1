@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NavListComponent } from './navbar/nav-list/nav-list.component';
 import { NavButtonComponent } from './components/nav-button/nav-button.component';
 import { NavLogoComponent } from './components/nav-logo/nav-logo.component';
+import { IconsComponent } from './components/icons/icons.component';
 
 @NgModule({
     declarations: [
@@ -16,6 +17,7 @@ import { NavLogoComponent } from './components/nav-logo/nav-logo.component';
         NavListComponent,
         NavButtonComponent,
         NavLogoComponent,
+        IconsComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, FontAwesomeModule],
     providers: [],
