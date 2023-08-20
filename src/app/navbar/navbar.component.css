@@ -2,3 +2,7 @@
     @apply flex flex-row;
     @apply bg-zinc-900;
 }
+
+.faBars {
+    @apply flex justify-center my-auto mx-4;
+}

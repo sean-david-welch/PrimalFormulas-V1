@@ -1,0 +1,9 @@
+.nav-button {
+    @apply rounded-2xl text-gray-200;
+    @apply transition-all duration-700 ease-in-out;
+    @apply hover:bg-yellow-500;
+}
+.nav-link {
+    @apply no-underline;
+    @apply hover:outline-none hover:decoration-inherit;
+}

@@ -2,3 +2,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600&display=swap");
+
+* {
+    font-family: "Oswald", sans-serif;
+}
+
+html {
+    @apply m-0 p-0 box-border;
+    @apply text-gray-200 scroll-smooth;
+    @apply overflow-x-hidden max-w-full;
+}
+
+html::-webkit-scrollbar {
+    @apply w-[0.3vw];
+}
+
+html::-webkit-scrollbar-thumb {
+    @apply bg-zinc-900 rounded-xl;
+}
+
+html::-webkit-scrollbar-track {
+    @apply bg-zinc-900;
+}
