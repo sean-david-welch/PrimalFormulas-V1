@@ -1,0 +1,12 @@
+.nav-logo {
+    @apply mx-5;
+}
+
+.logo-link {
+    @apply no-underline;
+    @apply hover:outline-none hover:decoration-inherit;
+}
+
+.logo {
+    @apply w-24 h-24;
+}
