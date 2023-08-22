@@ -1,5 +1,5 @@
 .navbar {
-    @apply fixed top-0 w-screen z-10;
+    @apply sticky top-0 w-screen z-10;
     @apply flex flex-row;
     @apply bg-zinc-900;
 }
@@ -7,6 +7,7 @@
 .navbar-transparent {
     @apply navbar;
     @apply bg-transparent text-black;
+    @apply fixed !important;
 }
 
 .faBars {
