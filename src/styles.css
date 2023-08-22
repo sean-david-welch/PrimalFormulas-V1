@@ -26,3 +26,9 @@ html::-webkit-scrollbar-thumb {
 html::-webkit-scrollbar-track {
     @apply bg-zinc-900;
 }
+
+.section-heading {
+    @apply mx-auto;
+    @apply text-2xl text-zinc-900;
+    @apply decoration-yellow-600;
+}

@@ -1,5 +1,5 @@
 .navbar {
-    @apply fixed top-0 w-screen;
+    @apply fixed top-0 w-screen z-10;
     @apply flex flex-row;
     @apply bg-zinc-900;
 }

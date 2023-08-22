@@ -5,14 +5,21 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { NavbarComponent } from './navbar/navbar.component';
-import { NavListComponent } from './navbar/nav-list/nav-list.component';
+
+//Pages
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
+
+// Layouts
+import { NavbarComponent } from './layout/navbar/navbar.component';
+import { NavListComponent } from './layout/navbar/nav-list/nav-list.component';
+import { FooterComponent } from './layout/footer/footer.component';
+
+// Misc
 import { NavButtonComponent } from './components/nav-button/nav-button.component';
 import { NavLogoComponent } from './components/nav-logo/nav-logo.component';
 import { IconsComponent } from './components/icons/icons.component';
-import { FooterComponent } from './footer/footer.component';
 import { HeroComponent } from './components/hero/hero.component';
-import { AboutComponent } from './about/about.component';
 
 @NgModule({
     declarations: [
@@ -25,6 +32,7 @@ import { AboutComponent } from './about/about.component';
         FooterComponent,
         HeroComponent,
         AboutComponent,
+        HomeComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule],
     providers: [],

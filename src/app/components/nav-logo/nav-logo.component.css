@@ -1,5 +1,6 @@
 .nav-logo {
     @apply mx-5;
+    @apply cursor-pointer;
 }
 
 .logo-link {
