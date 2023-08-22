@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -6,6 +7,19 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
     faBars = faBars;
+    isHomePage: boolean = false;
+
+    constructor(private router: Router) {}
+
+    ngOnInit() {
+        this.router.events.subscribe((event) => {
+            if (event instanceof NavigationEnd) {
+                this.isHomePage =
+                    event.urlAfterRedirects === '/' ||
+                    event.urlAfterRedirects === '';
+            }
+        });
+    }
 }

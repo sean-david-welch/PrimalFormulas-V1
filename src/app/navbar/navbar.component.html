@@ -1,4 +1,4 @@
-<nav class="navbar">
+<nav class="navbar" [ngClass]="{'navbar-transparent': isHomePage}">
     <fa-icon [icon]="faBars" class="faBars" size=2x [styles]="{'color': 'white'}" />
     <app-nav-list />
 </nav>
