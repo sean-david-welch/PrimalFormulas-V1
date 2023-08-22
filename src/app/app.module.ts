@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -9,6 +10,7 @@ import { NavListComponent } from './navbar/nav-list/nav-list.component';
 import { NavButtonComponent } from './components/nav-button/nav-button.component';
 import { NavLogoComponent } from './components/nav-logo/nav-logo.component';
 import { IconsComponent } from './components/icons/icons.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
     declarations: [
@@ -18,8 +20,9 @@ import { IconsComponent } from './components/icons/icons.component';
         NavButtonComponent,
         NavLogoComponent,
         IconsComponent,
+        FooterComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule, FontAwesomeModule],
+    imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule],
     providers: [],
     bootstrap: [AppComponent],
 })
