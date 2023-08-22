@@ -1,3 +1,4 @@
 .footer {
-    @apply bg-zinc-900 text-white;
+    @apply py-10 px-5 text-center;
+    @apply bg-zinc-900;
 }

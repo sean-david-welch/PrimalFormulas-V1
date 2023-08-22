@@ -11,6 +11,7 @@ import { NavButtonComponent } from './components/nav-button/nav-button.component
 import { NavLogoComponent } from './components/nav-logo/nav-logo.component';
 import { IconsComponent } from './components/icons/icons.component';
 import { FooterComponent } from './footer/footer.component';
+import { HeroComponent } from './components/hero/hero.component';
 
 @NgModule({
     declarations: [
@@ -21,6 +22,7 @@ import { FooterComponent } from './footer/footer.component';
         NavLogoComponent,
         IconsComponent,
         FooterComponent,
+        HeroComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule],
     providers: [],
