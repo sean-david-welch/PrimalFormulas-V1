@@ -71,6 +71,7 @@ s3 = boto3.client(
 BUCKET_NAME = "primalformulas-bucket"
 
 origins = [
+    "http://localhost:4200",
     "https://primalformulas.ie",
     "https://www.primalformulas.ie",
     "https://primalformulas.eu",
