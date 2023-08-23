@@ -7,22 +7,27 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 //Pages
-import { AboutComponent } from './about/about.component';
-import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './pages/about/about.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { ProductDetailComponent } from './pages/products/product-detail/product-detail.component';
+import { AccountComponent } from './pages/account/account.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 // Layouts
-import { NavbarComponent } from './layout/navbar/navbar.component';
-import { NavListComponent } from './layout/navbar/nav-list/nav-list.component';
-import { NavLogoComponent } from './layout/navbar/nav-list/nav-logo/nav-logo.component';
-import { NavbarLinkComponent } from './layout/navbar/nav-list/navbar-link/navbar-link.component';
+import { NavbarComponent } from './shared/components/layout/navbar/navbar.component';
+import { NavListComponent } from './shared/components/layout/navbar/nav-list/nav-list.component';
+import { NavLogoComponent } from './shared/components/layout/navbar/nav-list/nav-logo/nav-logo.component';
+import { NavbarLinkComponent } from './shared/components/layout/navbar/nav-list/navbar-link/navbar-link.component';
 
-import { FooterComponent } from './layout/footer/footer.component';
-import { ToTopButtonComponent } from './layout/footer/to-top-button/to-top-button.component';
+import { FooterComponent } from './shared/components/layout/footer/footer.component';
+import { ToTopButtonComponent } from './shared/components/layout/footer/to-top-button/to-top-button.component';
 
 // Misc
-import { NavButtonComponent } from './components/nav-button/nav-button.component';
-import { HeroComponent } from './components/hero/hero.component';
-import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { NavButtonComponent } from './shared/components/nav-button/nav-button.component';
+import { HeroComponent } from './shared/components/hero/hero.component';
+import { SidebarComponent } from './shared/components/layout/sidebar/sidebar.component';
 
 @NgModule({
     declarations: [
@@ -38,6 +43,11 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
         ToTopButtonComponent,
         NavbarLinkComponent,
         SidebarComponent,
+        ProductsComponent,
+        ProductDetailComponent,
+        AccountComponent,
+        CartComponent,
+        NotFoundComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule],
     providers: [],
