@@ -1,3 +1,38 @@
 .sidebar-icon {
-    @apply mx-5;
+    @apply z-20;
+    @apply mx-10;
+}
+
+.sidebar {
+    @apply flex flex-col;
+    @apply bg-zinc-900 fixed top-0 left-0;
+    @apply transition-all duration-700 ease-in-out -translate-x-full;
+    @apply min-h-screen w-[25vw];
+}
+
+.sidebar.open {
+    @apply translate-x-0;
+}
+
+.sidebar-icon-open {
+    @apply mx-auto;
+}
+
+.sidebar-menu {
+    @apply flex flex-col;
+    @apply mx-auto;
+}
+
+.sidebar-menu > * {
+    @apply my-20;
+}
+
+.sidebar-list {
+    @apply flex flex-col;
+    @apply mx-auto;
+}
+
+.sidebar-list-item {
+    @apply text-2xl text-white;
+    @apply mx-auto my-10;
 }
