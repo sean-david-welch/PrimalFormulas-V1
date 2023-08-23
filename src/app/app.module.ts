@@ -13,14 +13,15 @@ import { HomeComponent } from './home/home.component';
 // Layouts
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { NavListComponent } from './layout/navbar/nav-list/nav-list.component';
+import { NavLogoComponent } from './layout/navbar/nav-list/nav-logo/nav-logo.component';
+import { NavbarLinkComponent } from './layout/navbar/nav-list/navbar-link/navbar-link.component';
+
 import { FooterComponent } from './layout/footer/footer.component';
+import { ToTopButtonComponent } from './layout/footer/to-top-button/to-top-button.component';
 
 // Misc
 import { NavButtonComponent } from './components/nav-button/nav-button.component';
-import { NavLogoComponent } from './components/nav-logo/nav-logo.component';
-import { IconsComponent } from './components/icons/icons.component';
 import { HeroComponent } from './components/hero/hero.component';
-import { ToTopButtonComponent } from './components/to-top-button/to-top-button.component';
 
 @NgModule({
     declarations: [
@@ -29,12 +30,12 @@ import { ToTopButtonComponent } from './components/to-top-button/to-top-button.c
         NavListComponent,
         NavButtonComponent,
         NavLogoComponent,
-        IconsComponent,
         FooterComponent,
         HeroComponent,
         AboutComponent,
         HomeComponent,
         ToTopButtonComponent,
+        NavbarLinkComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule],
     providers: [],
