@@ -1,0 +1,20 @@
+<div [ngClass]="{'open': (sidebarService.isOpen$ | async), 'closed': !(sidebarService.isOpen$ | async)}"
+    class="sidebar">
+    <nav class="sidebar-menu">
+        <ul class="sidebar-list">
+            <li class="sidebar-list-item">hi</li>
+            <li class="sidebar-list-item">hi</li>
+            <li class="sidebar-list-item">hi</li>
+            <li class="sidebar-list-item">hi</li>
+            <li class="sidebar-list-item">hi</li>
+        </ul>
+    </nav>
+
+    <div *ngIf="sidebarService.isOpen$ | async" (click)="sidebarService.toggleSidebar()" class="sidebar-icon">
+        <fa-icon [icon]="faX" class="navigation" size="2x" [ngStyle]="{'color': 'white'}"></fa-icon>
+    </div>
+</div>
+
+<div *ngIf="!(sidebarService.isOpen$ | async)" (click)="sidebarService.toggleSidebar()" class="sidebar-icon">
+    <fa-icon [icon]="faBars" class="navigation" size="2x" [ngStyle]="{'color': 'white'}"></fa-icon>
+</div>

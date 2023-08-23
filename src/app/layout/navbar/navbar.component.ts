@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-navbar',
@@ -8,7 +7,6 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
     styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-    faBars = faBars;
     isHomePage: boolean = false;
 
     constructor(private router: Router) {}

@@ -1,15 +1,27 @@
 .navbar {
     @apply sticky top-0 w-screen z-10;
-    @apply flex flex-row;
+    @apply grid grid-cols-3;
     @apply bg-zinc-900;
+}
+
+.navbar > * {
+    @apply flex my-auto;
+}
+
+.navbar > :first-child {
+    @apply justify-start;
+}
+
+.navbar > :nth-child(2) {
+    @apply justify-center;
+}
+
+.navbar > :last-child {
+    @apply justify-end;
 }
 
 .navbar-transparent {
     @apply navbar;
     @apply bg-transparent text-black;
     @apply fixed !important;
-}
-
-.faBars {
-    @apply flex justify-center my-auto mx-4;
 }

@@ -2,3 +2,11 @@
     @apply flex flex-row;
     @apply justify-center items-center my-auto mx-2;
 }
+
+.nav-list > * {
+    @apply mx-5;
+}
+
+.nav-links > * {
+    @apply mx-2;
+}

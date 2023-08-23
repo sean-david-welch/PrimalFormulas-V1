@@ -22,6 +22,7 @@ import { ToTopButtonComponent } from './layout/footer/to-top-button/to-top-butto
 // Misc
 import { NavButtonComponent } from './components/nav-button/nav-button.component';
 import { HeroComponent } from './components/hero/hero.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
 
 @NgModule({
     declarations: [
@@ -36,6 +37,7 @@ import { HeroComponent } from './components/hero/hero.component';
         HomeComponent,
         ToTopButtonComponent,
         NavbarLinkComponent,
+        SidebarComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule],
     providers: [],

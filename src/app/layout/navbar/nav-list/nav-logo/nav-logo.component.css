@@ -1,5 +1,4 @@
 .nav-logo {
-    @apply mx-5;
     @apply cursor-pointer;
 }
 
@@ -9,5 +8,5 @@
 }
 
 .logo {
-    @apply w-24 h-24;
+    @apply w-28 h-28;
 }
