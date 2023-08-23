@@ -27,6 +27,10 @@ html::-webkit-scrollbar-track {
     @apply bg-zinc-900;
 }
 
+body {
+    @apply bg-gradient-to-br from-zinc-400 via-zinc-500 to-zinc-600;
+}
+
 .section-heading {
     @apply mx-auto;
     @apply text-2xl text-zinc-900;

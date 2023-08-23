@@ -20,6 +20,7 @@ import { NavButtonComponent } from './components/nav-button/nav-button.component
 import { NavLogoComponent } from './components/nav-logo/nav-logo.component';
 import { IconsComponent } from './components/icons/icons.component';
 import { HeroComponent } from './components/hero/hero.component';
+import { ToTopButtonComponent } from './components/to-top-button/to-top-button.component';
 
 @NgModule({
     declarations: [
@@ -33,6 +34,7 @@ import { HeroComponent } from './components/hero/hero.component';
         HeroComponent,
         AboutComponent,
         HomeComponent,
+        ToTopButtonComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule],
     providers: [],
