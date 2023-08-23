@@ -26,7 +26,7 @@ import { ToTopButtonComponent } from './shared/components/layout/footer/to-top-b
 
 // Misc
 import { NavButtonComponent } from './shared/components/nav-button/nav-button.component';
-import { HeroComponent } from './shared/components/hero/hero.component';
+import { HeroComponent } from './pages/home/hero/hero.component';
 import { SidebarComponent } from './shared/components/layout/sidebar/sidebar.component';
 
 @NgModule({
