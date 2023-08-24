@@ -28,6 +28,7 @@ import { ToTopButtonComponent } from './shared/components/layout/footer/to-top-b
 import { NavButtonComponent } from './shared/components/nav-button/nav-button.component';
 import { HeroComponent } from './pages/home/hero/hero.component';
 import { SidebarComponent } from './shared/components/layout/sidebar/sidebar.component';
+import { OverlayComponent } from './pages/home/overlay/overlay.component';
 
 @NgModule({
     declarations: [
@@ -48,6 +49,7 @@ import { SidebarComponent } from './shared/components/layout/sidebar/sidebar.com
         AccountComponent,
         CartComponent,
         NotFoundComponent,
+        OverlayComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule],
     providers: [],

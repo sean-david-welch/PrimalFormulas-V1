@@ -1,0 +1,5 @@
+a.navbar-link .icon {
+    @apply text-white;
+    @apply transition-all duration-700 ease-in-out;
+    @apply hover:text-yellow-500 hover:scale-105;
+}

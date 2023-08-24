@@ -1,13 +1,30 @@
 .sidebar-icon {
-    @apply z-20;
+    @apply flex flex-row;
+    @apply transition-all duration-700 ease-out;
+    @apply mx-10 cursor-pointer;
+}
+
+.sidebar-icon > :first-child {
+    @apply my-auto mx-5;
+}
+
+.sidebar-icon > :last-child {
     @apply mx-10;
 }
 
 .sidebar {
     @apply flex flex-col;
-    @apply bg-zinc-900 fixed top-0 left-0;
+    @apply border-r-2 border-zinc-900;
+    @apply bg-zinc-700 fixed top-0 left-0;
     @apply transition-all duration-700 ease-in-out -translate-x-full;
-    @apply min-h-screen w-[25vw];
+    @apply min-h-screen w-[30vw];
+    @apply hover:border-yellow-500;
+}
+
+.navigation {
+    @apply text-white;
+    @apply transition-all duration-700 ease-in-out;
+    @apply hover:text-yellow-500 hover:scale-105;
 }
 
 .sidebar.open {
@@ -15,7 +32,11 @@
 }
 
 .sidebar-icon-open {
-    @apply mx-auto;
+    @apply flex flex-row mx-auto my-4;
+}
+
+.sidebar-icon-open > :first-child {
+    @apply absolute left-10 top-10 cursor-pointer;
 }
 
 .sidebar-menu {
@@ -24,15 +45,36 @@
 }
 
 .sidebar-menu > * {
-    @apply my-20;
+    @apply my-2;
 }
 
 .sidebar-list {
     @apply flex flex-col;
-    @apply mx-auto;
+    @apply mx-auto my-10;
 }
 
 .sidebar-list-item {
-    @apply text-2xl text-white;
-    @apply mx-auto my-10;
+    @apply mx-10 my-12 w-[20vw];
+    @apply pb-2 border-b-2 border-white;
+    @apply text-2xl font-normal text-white;
+    @apply transition-all duration-500 ease-in-out;
+    @apply hover:text-yellow-500 hover:border-yellow-500 hover:scale-105;
+}
+
+.sidebar-nav {
+    @apply grid grid-cols-2 mx-auto;
+}
+
+.sidebar-nav > * {
+    @apply mx-10 my-5;
+}
+
+.sidebar-link {
+    @apply border-4 border-white rounded-xl py-2 px-8;
+    @apply transition-all duration-500 ease-in-out;
+    @apply hover:text-yellow-500 hover:border-yellow-500 hover:scale-105;
+}
+
+.sidebar-link:hover .icon {
+    @apply hover:text-yellow-500;
 }

@@ -1,7 +1,9 @@
 .navbar {
-    @apply sticky top-0 w-screen z-10;
-    @apply grid grid-cols-3;
-    @apply bg-zinc-900;
+    @apply flex flex-row justify-between;
+    @apply sticky top-0 w-screen z-20 h-[15vh];
+    @apply bg-zinc-700 border-b-2 border-zinc-900;
+    @apply transition-all duration-700 ease-in-out;
+    @apply hover:border-yellow-500;
 }
 
 .navbar > * {
@@ -21,7 +23,6 @@
 }
 
 .navbar-transparent {
-    @apply navbar;
-    @apply bg-transparent text-black;
-    @apply fixed !important;
+    @apply navbar fixed !important;
+    @apply bg-transparent border-0 text-black;
 }

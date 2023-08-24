@@ -32,7 +32,7 @@ body {
 }
 
 .section-heading {
-    @apply mx-auto;
-    @apply text-2xl text-zinc-900;
-    @apply decoration-yellow-600;
+    @apply mx-auto font-normal;
+    @apply text-4xl text-zinc-900;
+    @apply underline decoration-yellow-500 decoration-2 underline-offset-8;
 }
