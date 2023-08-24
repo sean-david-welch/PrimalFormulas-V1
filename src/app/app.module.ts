@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -51,7 +52,13 @@ import { OverlayComponent } from './pages/home/overlay/overlay.component';
         NotFoundComponent,
         OverlayComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        AppRoutingModule,
+        FontAwesomeModule,
+    ],
     providers: [],
     bootstrap: [AppComponent],
 })

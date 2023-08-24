@@ -1,4 +1,6 @@
 .footer {
-    @apply py-10 px-5 text-center;
-    @apply bg-zinc-900;
+    @apply grid grid-cols-3 bg-zinc-700 z-20;
+    @apply py-10 px-5;
+    @apply border-t-2 border-zinc-900;
+    @apply hover:border-yellow-500;
 }
