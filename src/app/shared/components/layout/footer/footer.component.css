@@ -1,6 +1,26 @@
 .footer {
-    @apply grid grid-cols-3 bg-zinc-700 z-20;
-    @apply py-10 px-5;
-    @apply border-t-2 border-zinc-900;
+    @apply grid grid-cols-3 justify-items-center;
+    @apply py-10 px-5 z-20;
+    @apply bg-zinc-700 border-t-2 border-zinc-900;
     @apply hover:border-yellow-500;
+}
+
+.footer-info {
+    @apply flex flex-col;
+}
+
+.address-list > * {
+    @apply my-2;
+}
+
+.footer-links {
+    @apply flex flex-col;
+}
+
+.footer-nav {
+    @apply flex flex-col;
+}
+
+.footer-nav > * {
+    @apply w-[15vw] my-2;
 }

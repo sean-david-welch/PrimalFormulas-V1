@@ -1,12 +1,14 @@
 <footer class="footer">
     <div class="footer-info">
-        <ul className="address-list">
-            <li className="address-item">Primal Formulas Ltd.</li>
-            <li className="address-item">Clonross, Drumree</li>
-            <li className="address-item">Co. Meath,</li>
-            <li className="address-item">A85 PK30</li>
-            <li className="address-item">Tel: 01 - 8259289</li>
-            <li className="address-item">
+        <ul class="address-list">
+            <li class="address-item">
+                <h1 class="section-heading">Primal Formulas Ltd.</h1>
+            </li>
+            <li class="address-item">Clonross, Drumree</li>
+            <li class="address-item">Co. Meath,</li>
+            <li class="address-item">A85 PK30</li>
+            <li class="address-item">Tel: 01 - 8259289</li>
+            <li class="address-item">
                 Email: info@primalformulas.ie
             </li>
         </ul>
@@ -15,7 +17,10 @@
         <app-nav-logo />
     </div>
     <div class="footer-nav">
-        <app-nav-button />
+        <app-nav-button link="/about" text="About Us" iconName="bracket-right" />
+        <app-nav-button link="/products" text="Products" iconName="bracket-right" />
+        <app-nav-button link="/cart" text="Cart" iconName="bracket-right" />
+        <app-nav-button link="/account" text="Account" iconName="bracket-right" />
     </div>
     <app-to-top-button />
 </footer>
