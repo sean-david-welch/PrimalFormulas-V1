@@ -20,7 +20,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { NavbarComponent } from './shared/components/layout/navbar/navbar.component';
 import { NavListComponent } from './shared/components/layout/navbar/nav-list/nav-list.component';
 import { NavLogoComponent } from './shared/components/layout/navbar/nav-list/nav-logo/nav-logo.component';
-import { NavbarLinkComponent } from './shared/components/layout/navbar/nav-list/navbar-link/navbar-link.component';
+import { NavbarLinkComponent } from './shared/components/layout/navbar/nav-list/nav-link/nav-link.component';
 
 import { FooterComponent } from './shared/components/layout/footer/footer.component';
 import { ToTopButtonComponent } from './shared/components/layout/footer/to-top-button/to-top-button.component';
@@ -33,6 +33,7 @@ import { OverlayComponent } from './pages/home/overlay/overlay.component';
 import { DisplaysComponent } from './pages/home/displays/displays.component';
 import { BenefitItemComponent } from './pages/home/displays/benefit-item/benefit-item.component';
 import { IntersectionObserverDirective } from './shared/directives/intersection-observer.directive';
+import { IconLinkComponent } from './shared/components/layout/sidebar/icon-link/icon-link.component';
 
 @NgModule({
     declarations: [
@@ -57,6 +58,7 @@ import { IntersectionObserverDirective } from './shared/directives/intersection-
         DisplaysComponent,
         BenefitItemComponent,
         IntersectionObserverDirective,
+        IconLinkComponent,
     ],
     imports: [
         BrowserModule,

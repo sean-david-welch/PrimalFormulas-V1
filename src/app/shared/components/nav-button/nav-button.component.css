@@ -3,6 +3,7 @@
     @apply transition-all duration-700 ease-in-out;
     @apply hover:bg-yellow-600 hover:text-zinc-900 hover:scale-105;
 }
+
 .nav-link {
     @apply no-underline;
     @apply hover:outline-none hover:decoration-inherit;

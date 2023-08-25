@@ -74,7 +74,3 @@
     @apply transition-all duration-500 ease-in-out;
     @apply hover:text-yellow-500 hover:border-yellow-500 hover:scale-105;
 }
-
-.sidebar-link:hover .icon {
-    @apply hover:text-yellow-500;
-}
