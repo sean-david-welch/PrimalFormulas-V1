@@ -2,6 +2,7 @@
     @apply grid grid-cols-3 justify-items-center;
     @apply py-10 px-5 z-20;
     @apply bg-zinc-700 border-t-2 border-zinc-900;
+    @apply transition-all duration-700 ease-in-out;
     @apply hover:border-yellow-500;
 }
 
@@ -15,6 +16,18 @@
 
 .footer-links {
     @apply flex flex-col;
+}
+
+.footer-links > :first-child {
+    @apply mx-auto;
+}
+
+.social-links {
+    @apply flex flex-row;
+}
+
+.social-links > * {
+    @apply mx-2;
 }
 
 .footer-nav {

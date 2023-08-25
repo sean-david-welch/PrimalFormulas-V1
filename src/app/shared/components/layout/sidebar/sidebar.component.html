@@ -1,7 +1,7 @@
 <div [ngClass]="{'open': (sidebarService.isOpen$ | async)}" class="sidebar">
 
-    <div *ngIf="sidebarService.isOpen$ | async" (click)="sidebarService.toggleSidebar()" class="sidebar-icon-open">
-        <fa-icon [icon]="faX" class="navigation" size="2x"></fa-icon>
+    <div class="sidebar-icon-open">
+        <fa-icon [icon]="faX" class="navigation" size="2x" (click)="sidebarService.toggleSidebar()" />
         <app-nav-logo />
     </div>
 
@@ -27,7 +27,7 @@
 
 </div>
 
-<div *ngIf="!(sidebarService.isOpen$ | async)" (click)="sidebarService.toggleSidebar()" class="sidebar-icon">
-    <fa-icon [icon]="faBars" class="navigation" size="2x"></fa-icon>
+<div class="sidebar-icon">
+    <fa-icon [icon]="faBars" class="navigation" size="2x" (click)="sidebarService.toggleSidebar()" />
     <app-nav-logo />
 </div>

@@ -13,7 +13,7 @@
 }
 
 .sidebar {
-    @apply flex flex-col;
+    @apply flex flex-col z-10;
     @apply border-r-2 border-zinc-900;
     @apply bg-zinc-700 fixed top-0 left-0;
     @apply transition-all duration-700 ease-in-out -translate-x-full;

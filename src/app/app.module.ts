@@ -30,6 +30,7 @@ import { NavButtonComponent } from './shared/components/nav-button/nav-button.co
 import { HeroComponent } from './pages/home/hero/hero.component';
 import { SidebarComponent } from './shared/components/layout/sidebar/sidebar.component';
 import { OverlayComponent } from './pages/home/overlay/overlay.component';
+import { DisplaysComponent } from './pages/home/displays/displays.component';
 
 @NgModule({
     declarations: [
@@ -51,6 +52,7 @@ import { OverlayComponent } from './pages/home/overlay/overlay.component';
         CartComponent,
         NotFoundComponent,
         OverlayComponent,
+        DisplaysComponent,
     ],
     imports: [
         BrowserModule,
