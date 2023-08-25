@@ -10,8 +10,12 @@
     @apply flex flex-col;
 }
 
-.address-list > * {
+.address-list {
     @apply my-2;
+}
+
+.address-list > * {
+    @apply my-2 text-xl;
 }
 
 .footer-links {
@@ -23,11 +27,14 @@
 }
 
 .social-links {
-    @apply flex flex-row;
+    @apply flex flex-row my-10;
 }
 
 .social-links > * {
-    @apply mx-2;
+    @apply mx-4 p-2;
+    @apply border-4 border-zinc-200  rounded-lg;
+    @apply transition-all duration-700 ease-in-out;
+    @apply hover:text-yellow-500 hover:border-yellow-500 hover:scale-105;
 }
 
 .footer-nav {
@@ -35,5 +42,9 @@
 }
 
 .footer-nav > * {
-    @apply w-[15vw] my-2;
+    @apply my-2 mx-10;
+}
+
+.footer-nav.nav-button {
+    @apply w-[250px];
 }

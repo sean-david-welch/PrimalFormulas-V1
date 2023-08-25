@@ -8,7 +8,6 @@
 }
 
 .logo {
-    @apply w-28 h-28;
     @apply transition-all duration-700 ease-in-out;
     @apply hover:scale-105;
 }
