@@ -1,3 +1,13 @@
-.displays {
-    @apply h-screen;
+.benefits-home {
+    @apply flex flex-col mx-auto justify-center;
+    @apply my-16 mx-4 p-4;
+    @apply border-t-2 border-b-2 border-zinc-950;
+}
+
+.benefits-home h1 {
+    @apply my-6;
+}
+
+.benefits-list {
+    @apply grid grid-cols-4 gap-6;
 }

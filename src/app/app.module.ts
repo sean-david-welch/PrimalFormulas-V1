@@ -31,6 +31,7 @@ import { HeroComponent } from './pages/home/hero/hero.component';
 import { SidebarComponent } from './shared/components/layout/sidebar/sidebar.component';
 import { OverlayComponent } from './pages/home/overlay/overlay.component';
 import { DisplaysComponent } from './pages/home/displays/displays.component';
+import { BenefitItemComponent } from './pages/home/displays/benefit-item/benefit-item.component';
 
 @NgModule({
     declarations: [
@@ -53,6 +54,7 @@ import { DisplaysComponent } from './pages/home/displays/displays.component';
         NotFoundComponent,
         OverlayComponent,
         DisplaysComponent,
+        BenefitItemComponent,
     ],
     imports: [
         BrowserModule,
