@@ -1,16 +1,18 @@
 <section id="about">
-    <div class="page-heading">
-        <h1 class="section-heading">Company Values & History:</h1>
-        <app-nav-button [link]="'/products'" [text]="'Shop Primal Formulas'" [iconName]="'arrow-right'" />
-    </div>
+    <app-loading-spinner *ngIf="isLoading" />
 
-
-    <div *ngFor="let item of about" class="about-card">
-        <div class="about-info">
-            <h1 class="item-heading">{{ item.title }}:</h1>
-            <p>{{ item.description }}</p>
+    <div *ngIf="!isLoading">
+        <div class="page-heading">
+            <h1 class="section-heading">Company Values & History:</h1>
+            <app-nav-button [link]="'/products'" [text]="'Shop Primal Formulas'" [iconName]="'arrow-right'" />
         </div>
-        <img [src]="item.image" alt="{{ item.title }}" class="about-image">
-    </div>
 
+        <div *ngFor="let item of about" class="about-card">
+            <div class="about-info">
+                <h1 class="item-heading">{{ item.title }}:</h1>
+                <p>{{ item.description }}</p>
+            </div>
+            <img [src]="item.image" alt="{{ item.title }}" class="about-image">
+        </div>
+    </div>
 </section>

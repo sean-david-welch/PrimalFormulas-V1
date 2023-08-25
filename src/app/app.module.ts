@@ -36,6 +36,7 @@ import { IconLinkComponent } from './shared/components/layout/sidebar/icon-link/
 
 //Directives
 import { IntersectionObserverDirective } from './shared/directives/intersection-observer.directive';
+import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loading-spinner.component';
 
 @NgModule({
     declarations: [
@@ -61,6 +62,7 @@ import { IntersectionObserverDirective } from './shared/directives/intersection-
         BenefitItemComponent,
         IntersectionObserverDirective,
         IconLinkComponent,
+        LoadingSpinnerComponent,
     ],
     imports: [
         BrowserModule,
