@@ -1,7 +1,7 @@
 .hero {
-    @apply max-w-full max-h-full;
+    @apply min-w-full h-screen;
 }
 
 .hero video {
-    @apply max-w-full max-h-full;
+    @apply w-screen h-full object-cover;
 }
