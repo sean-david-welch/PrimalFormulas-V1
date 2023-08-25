@@ -36,10 +36,24 @@ main {
 }
 
 /* global styles */
+.page-heading {
+    @apply flex flex-col;
+    @apply mx-auto items-center;
+}
+
+.page-heading > * {
+    @apply my-2;
+}
+
 .section-heading {
-    @apply mx-auto font-normal;
+    @apply mx-auto font-normal text-center;
     @apply text-4xl text-zinc-900;
     @apply underline decoration-yellow-500 decoration-2 underline-offset-8;
+}
+
+.item-heading {
+    @apply section-heading;
+    @apply text-zinc-200;
 }
 
 .hidden {

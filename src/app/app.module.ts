@@ -32,8 +32,10 @@ import { SidebarComponent } from './shared/components/layout/sidebar/sidebar.com
 import { OverlayComponent } from './pages/home/overlay/overlay.component';
 import { DisplaysComponent } from './pages/home/displays/displays.component';
 import { BenefitItemComponent } from './pages/home/displays/benefit-item/benefit-item.component';
-import { IntersectionObserverDirective } from './shared/directives/intersection-observer.directive';
 import { IconLinkComponent } from './shared/components/layout/sidebar/icon-link/icon-link.component';
+
+//Directives
+import { IntersectionObserverDirective } from './shared/directives/intersection-observer.directive';
 
 @NgModule({
     declarations: [

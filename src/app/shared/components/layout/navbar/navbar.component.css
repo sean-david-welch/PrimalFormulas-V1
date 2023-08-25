@@ -23,6 +23,7 @@
 }
 
 .navbar-transparent {
-    @apply navbar fixed !important;
+    @apply navbar;
     @apply bg-transparent border-0 text-black;
+    @apply fixed !important;
 }
