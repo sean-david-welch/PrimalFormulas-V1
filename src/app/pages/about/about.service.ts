@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { AboutSection } from './about.models';
+import { api_base_url } from 'src/app/shared/utils/config';
 
 @Injectable({
     providedIn: 'root',
 })
-export class fetchData {
-    baseUrl = 'http://127.0.0.1:8000/api';
+export class AboutService {
+    baseUrl = api_base_url;
 
     constructor(private httpClient: HttpClient) {}
 

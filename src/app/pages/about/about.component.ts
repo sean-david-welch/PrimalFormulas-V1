@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { fetchData } from './about.service';
+import { AboutService } from './about.service';
 
 import { AboutSection } from './about.models';
 
@@ -10,12 +10,13 @@ import { AboutSection } from './about.models';
 })
 export class AboutComponent implements OnInit {
     about: AboutSection[] = [];
-    isLoading = true;
+    isLoading = <boolean>false;
 
-    constructor(private fetchData: fetchData) {}
+    constructor(private aboutService: AboutService) {}
 
     ngOnInit(): void {
-        this.fetchData.getData('about').subscribe((response) => {
+        this.isLoading = true;
+        this.aboutService.getData('about').subscribe((response) => {
             this.about = response;
             this.isLoading = false;
         });
