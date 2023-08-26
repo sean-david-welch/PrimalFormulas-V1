@@ -1,1 +1,16 @@
-<p>products works!</p>
+<section id="products">
+    <app-loading-spinner *ngIf="isLoading" />
+
+    <div class="products" *ngIf="!isLoading">
+        <div class="page-heading">
+            <h1 class="section-heading">Our Products:</h1>
+            <app-nav-button [link]="'/products'" [text]="'Shop Primal Formulas'" [iconName]="'arrow-right'" />
+        </div>
+
+        <div class="product-card" *ngFor="let product of products">
+            <h1>{{product.name}} -- {{product.price}}</h1>
+            <p>{{product.description}}</p>
+            <img src="{{product.image}}" alt="">
+        </div>
+    </div>
+</section>

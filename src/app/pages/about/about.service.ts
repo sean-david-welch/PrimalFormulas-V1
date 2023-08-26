@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 
 import { AboutSection } from './about.models';
 import { api_base_url } from 'src/app/shared/utils/config';
@@ -11,11 +11,22 @@ import { api_base_url } from 'src/app/shared/utils/config';
 export class AboutService {
     baseUrl = api_base_url;
 
-    constructor(private httpClient: HttpClient) {}
+    constructor(private http: HttpClient) {}
 
     getData(endpoint: string): Observable<AboutSection[]> {
-        return this.httpClient.get<AboutSection[]>(
-            `${this.baseUrl}/${endpoint}`
-        );
+        return this.http
+            .get<AboutSection[]>(`${this.baseUrl}/${endpoint}`)
+            .pipe(
+                catchError((error) => {
+                    console.error('Failed to fetch about models', error);
+                    return throwError(
+                        () =>
+                            new Error(
+                                'An error occured while fetching the content',
+                                error.message
+                            )
+                    );
+                })
+            );
     }
 }
