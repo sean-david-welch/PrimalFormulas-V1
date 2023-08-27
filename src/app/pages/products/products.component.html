@@ -7,10 +7,17 @@
             <app-nav-button [link]="'/products'" [text]="'Shop Primal Formulas'" [iconName]="'arrow-right'" />
         </div>
 
-        <div class="product-card" *ngFor="let product of products">
-            <h1>{{product.name}} -- {{product.price}}</h1>
-            <p>{{product.description}}</p>
-            <img src="{{product.image}}" alt="">
+        <div class="products-grid">
+            <div class="product-card" *ngFor="let product of products" appIntersectionObserver>
+                <h1>{{product.name}}</h1>
+                <a routerLink="/products"><img src="{{product.image}}" alt="product-image"></a>
+                <h1>€{{product.price}}</h1>
+                <div class="buttons-grid">
+                    <app-nav-button link="/" text="View Product" iconName="arrow-right" />
+                    <app-nav-button link="/" text="Add To Cart" iconName="cart-plus" />
+                </div>
+            </div>
         </div>
     </div>
+
 </section>

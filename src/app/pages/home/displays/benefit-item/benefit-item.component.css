@@ -1,7 +1,7 @@
 .benefits-list-item {
     @apply p-2 my-2 mx-4 h-[40vh];
     @apply flex flex-col mx-auto;
-    @apply border-2 rounded-xl border-zinc-950 bg-zinc-500;
+    @apply border-2 rounded-xl border-zinc-950 bg-zinc-600;
     @apply justify-center items-center text-center;
     @apply transition-all duration-1000 ease-in-out;
     @apply hover:bg-zinc-800 hover:border-yellow-500;

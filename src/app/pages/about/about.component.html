@@ -5,7 +5,7 @@
     <div *ngIf="!isLoading">
         <div class="page-heading">
             <h1 class="section-heading">Company Values & History:</h1>
-            <app-nav-button [link]="'/products'" [text]="'Shop Primal Formulas'" [iconName]="'arrow-right'" />
+            <app-nav-button link="'/products'" text="Shop Primal Formulas" iconName="arrow-right" />
         </div>
 
         <div *ngFor="let item of about" class="about-card">
