@@ -30,11 +30,3 @@
     @apply transition-all duration-700 ease-in-out;
     @apply hover:border-yellow-500;
 }
-
-.buttons-grid {
-    @apply mx-auto items-center;
-}
-
-.buttons-grid > * {
-    @apply mx-2;
-}

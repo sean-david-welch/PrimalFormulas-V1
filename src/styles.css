@@ -38,7 +38,7 @@ main {
 /* global styles */
 .page-heading {
     @apply flex flex-col;
-    @apply mx-auto items-center;
+    @apply mx-auto my-5 items-center;
 }
 
 .page-heading > * {
@@ -54,6 +54,14 @@ main {
 .item-heading {
     @apply section-heading;
     @apply text-zinc-200;
+}
+
+.buttons-grid {
+    @apply mx-auto items-center;
+}
+
+.buttons-grid > * {
+    @apply mx-2;
 }
 
 .hidden {

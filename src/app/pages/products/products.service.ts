@@ -28,4 +28,24 @@ export class ProductsService {
             })
         );
     }
+
+    fetchSingleProduct(
+        endpoint: string,
+        productId: string
+    ): Observable<Product> {
+        return this.http
+            .get<Product>(`${this.baseUrl}/${endpoint}/${productId}`)
+            .pipe(
+                catchError((error) => {
+                    console.error('Failed to fetch product by ID', error);
+                    return throwError(
+                        () =>
+                            new Error(
+                                'An error occured when fetching the product',
+                                error.message
+                            )
+                    );
+                })
+            );
+    }
 }
