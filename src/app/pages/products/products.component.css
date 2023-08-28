@@ -25,6 +25,7 @@
 }
 
 .product-card img {
+    @apply max-w-[25rem]  max-h-[19rem] mx-auto;
     @apply rounded-2xl border-2 border-zinc-600 cursor-pointer;
     @apply transition-all duration-700 ease-in-out;
     @apply hover:border-yellow-500;

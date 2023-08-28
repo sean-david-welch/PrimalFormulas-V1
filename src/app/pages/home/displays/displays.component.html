@@ -1,7 +1,7 @@
 <div class="benefits-home">
     <h1 class="section-heading">Benefits of Consistent Supplementation:</h1>
     <ul class="benefits-list">
-        <app-benefit-item *ngFor="let benefit of benefits; let i = index" [icon]="benefit.icon" [title]="benefit.title"
-            [description]="benefit.description" [ngStyle]="{'animation-delay': i * 300 + 'ms'}" />
+        <app-benefit-item *ngFor="let benefit of benefits" [icon]="benefit.icon" [title]="benefit.title"
+            [description]="benefit.description" />
     </ul>
 </div>

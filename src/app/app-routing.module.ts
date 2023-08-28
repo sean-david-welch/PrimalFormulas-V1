@@ -16,11 +16,8 @@ const routes: Routes = [
     { path: 'about', component: AboutComponent },
     { path: 'account', component: AccountComponent },
     { path: 'cart', component: CartComponent },
-    {
-        path: 'products',
-        component: ProductsComponent,
-        children: [{ path: ':id', component: ProductDetailComponent }],
-    },
+    { path: 'products', component: ProductsComponent },
+    { path: 'products/:id', component: ProductDetailComponent },
     { path: 'not-found', component: NotFoundComponent },
     { path: '**', redirectTo: '/not-found' },
 ];

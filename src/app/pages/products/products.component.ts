@@ -13,6 +13,10 @@ export class ProductsComponent implements OnInit {
 
     constructor(private productsService: ProductsService) {}
 
+    public getProductLink(id: string): string {
+        return `/products/${id}`;
+    }
+
     ngOnInit(): void {
         this.isLoading = true;
         this.productsService.fetchProducts('products').subscribe((response) => {

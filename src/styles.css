@@ -76,7 +76,7 @@ main {
     }
 }
 
-.show:nth-child(2) {
+/* .show:nth-child(2) {
     animation-delay: 300ms;
 }
 
@@ -86,4 +86,4 @@ main {
 
 .show:nth-child(4) {
     animation-delay: 900ms;
-}
+} */

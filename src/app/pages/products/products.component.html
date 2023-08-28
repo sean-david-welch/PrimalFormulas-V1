@@ -8,16 +8,18 @@
         </div>
 
         <div class="products-grid">
-            <div class="product-card" *ngFor="let product of products" appIntersectionObserver>
+            <div class="product-card hidden" *ngFor="let product of products" appIntersectionObserver>
                 <h1>{{product.name}}</h1>
-                <a routerLink="/products"><img src="{{product.image}}" alt="product-image"></a>
+                <a [routerLink]="['/products', product.id]"><img src="{{product.image}}" alt="product-image"></a>
+
                 <h1>€{{product.price}}</h1>
                 <div class="buttons-grid">
-                    <app-nav-button link="/" text="View Product" iconName="arrow-right" />
+                    <app-nav-button [link]="getProductLink(product.id)" text=" View Product" iconName="arrow-right" />
                     <app-nav-button link="/" text="Add To Cart" iconName="cart-plus" />
                 </div>
             </div>
         </div>
+
     </div>
 
 </section>
