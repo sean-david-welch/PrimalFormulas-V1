@@ -39,6 +39,7 @@ import { IntersectionObserverDirective } from './shared/directives/intersection-
 import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loading-spinner.component';
 import { LoginFormComponent } from './pages/account/login-form/login-form.component';
 import { CurrentUserComponent } from './pages/account/current-user/current-user.component';
+import { AuthDirective } from './shared/auth/auth.directive';
 
 @NgModule({
     declarations: [
@@ -67,6 +68,7 @@ import { CurrentUserComponent } from './pages/account/current-user/current-user.
         LoadingSpinnerComponent,
         LoginFormComponent,
         CurrentUserComponent,
+        AuthDirective,
     ],
     imports: [
         BrowserModule,

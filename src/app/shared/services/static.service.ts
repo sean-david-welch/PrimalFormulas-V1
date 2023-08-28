@@ -9,12 +9,15 @@ import { api_base_url } from '../utils/config';
     providedIn: 'root',
 })
 export class StaticService {
-    private baseUrl = api_base_url;
+    private constructUrl(name: string): string {
+        return `${api_base_url}/content/${name}`;
+    }
 
     constructor(private http: HttpClient) {}
 
     fetchStaticContent(name: string): Observable<Static> {
-        return this.http.get<Static>(`${this.baseUrl}/content/${name}`).pipe(
+        const url = this.constructUrl(name);
+        return this.http.get<Static>(url).pipe(
             catchError((error) => {
                 console.error('API call failed', error);
                 return throwError(

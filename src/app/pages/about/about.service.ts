@@ -9,24 +9,25 @@ import { api_base_url } from 'src/app/shared/utils/config';
     providedIn: 'root',
 })
 export class AboutService {
-    baseUrl = api_base_url;
+    private contructUrl(endpoint: string): string {
+        return `${api_base_url}/${endpoint}`;
+    }
 
     constructor(private http: HttpClient) {}
 
     getData(endpoint: string): Observable<AboutSection[]> {
-        return this.http
-            .get<AboutSection[]>(`${this.baseUrl}/${endpoint}`)
-            .pipe(
-                catchError((error) => {
-                    console.error('Failed to fetch about models', error);
-                    return throwError(
-                        () =>
-                            new Error(
-                                'An error occured while fetching the content',
-                                error.message
-                            )
-                    );
-                })
-            );
+        const url = this.contructUrl(endpoint);
+        return this.http.get<AboutSection[]>(url).pipe(
+            catchError((error) => {
+                console.error('Failed to fetch about models', error);
+                return throwError(
+                    () =>
+                        new Error(
+                            'An error occured while fetching the content',
+                            error.message
+                        )
+                );
+            })
+        );
     }
 }

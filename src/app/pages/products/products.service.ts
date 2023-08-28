@@ -10,12 +10,17 @@ import { api_base_url } from 'src/app/shared/utils/config';
     providedIn: 'root',
 })
 export class ProductsService {
-    private baseUrl = api_base_url;
+    private constructUrl(endpoint: string, params?: string): string {
+        return params
+            ? `${api_base_url}/${endpoint}/${params}`
+            : `${api_base_url}/${endpoint}`;
+    }
 
     constructor(private http: HttpClient) {}
 
     fetchProducts(endpoint: string): Observable<Product[]> {
-        return this.http.get<Product[]>(`${this.baseUrl}/${endpoint}`).pipe(
+        const url = this.constructUrl(endpoint);
+        return this.http.get<Product[]>(url).pipe(
             catchError((error) => {
                 console.error('Failed to fetch products array', error);
                 return throwError(
@@ -33,19 +38,18 @@ export class ProductsService {
         endpoint: string,
         productId: string
     ): Observable<Product> {
-        return this.http
-            .get<Product>(`${this.baseUrl}/${endpoint}/${productId}`)
-            .pipe(
-                catchError((error) => {
-                    console.error('Failed to fetch product by ID', error);
-                    return throwError(
-                        () =>
-                            new Error(
-                                'An error occured when fetching the product',
-                                error.message
-                            )
-                    );
-                })
-            );
+        const url = this.constructUrl(endpoint, productId);
+        return this.http.get<Product>(url).pipe(
+            catchError((error) => {
+                console.error('Failed to fetch product by ID', error);
+                return throwError(
+                    () =>
+                        new Error(
+                            'An error occured when fetching the product',
+                            error.message
+                        )
+                );
+            })
+        );
     }
 }
