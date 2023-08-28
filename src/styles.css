@@ -5,6 +5,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600&display=swap");
 
+/* global styles */
 * {
     font-family: "Oswald", sans-serif;
 }
@@ -35,7 +36,27 @@ main {
     @apply flex flex-col min-h-screen;
 }
 
-/* global styles */
+/* Forms */
+.form {
+    @apply flex flex-col bg-zinc-800 text-center p-10;
+}
+
+.form > * {
+    @apply my-4;
+}
+
+.form label {
+    @apply my-2 block text-lg font-medium text-zinc-200;
+}
+
+.form textarea,
+.form input,
+.form select {
+    @apply block w-2/3 rounded-lg border border-gray-300 bg-zinc-600 p-2.5 text-sm text-gray-900 mx-auto;
+    @apply border-zinc-600 bg-zinc-700 text-white placeholder-gray-400 focus:border-red-700 focus:ring-red-700;
+}
+
+/* Headings */
 .page-heading {
     @apply flex flex-col;
     @apply mx-auto my-5 items-center;
@@ -56,6 +77,8 @@ main {
     @apply text-zinc-200;
 }
 
+/* Buttons */
+
 .buttons-grid {
     @apply mx-auto items-center;
 }
@@ -63,6 +86,8 @@ main {
 .buttons-grid > * {
     @apply mx-2;
 }
+
+/* Animations */
 
 .hidden {
     opacity: 0;

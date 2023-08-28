@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -40,6 +42,7 @@ import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loa
 import { LoginFormComponent } from './pages/account/login-form/login-form.component';
 import { CurrentUserComponent } from './pages/account/current-user/current-user.component';
 import { AuthDirective } from './shared/auth/auth.directive';
+import { DialogComponent } from './shared/components/dialog/dialog.component';
 
 @NgModule({
     declarations: [
@@ -69,10 +72,12 @@ import { AuthDirective } from './shared/auth/auth.directive';
         LoginFormComponent,
         CurrentUserComponent,
         AuthDirective,
+        DialogComponent,
     ],
     imports: [
         BrowserModule,
         FormsModule,
+        ReactiveFormsModule,
         HttpClientModule,
         AppRoutingModule,
         FontAwesomeModule,

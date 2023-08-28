@@ -1,0 +1,10 @@
+<button (click)="toggleDialog()">Toggle Dialog</button>
+
+
+<dialog #dialog class="dialog">
+    <button class="dialog-btn" formMethod="dialog" (click)="closeDialog()">
+        <fa-icon [icon]="faX" />
+    </button>
+
+    <ng-content></ng-content>
+</dialog>
