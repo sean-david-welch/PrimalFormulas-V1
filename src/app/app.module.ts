@@ -37,6 +37,8 @@ import { IconLinkComponent } from './shared/components/layout/sidebar/icon-link/
 //Directives
 import { IntersectionObserverDirective } from './shared/directives/intersection-observer.directive';
 import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loading-spinner.component';
+import { LoginFormComponent } from './pages/account/login-form/login-form.component';
+import { CurrentUserComponent } from './pages/account/current-user/current-user.component';
 
 @NgModule({
     declarations: [
@@ -63,6 +65,8 @@ import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loa
         IntersectionObserverDirective,
         IconLinkComponent,
         LoadingSpinnerComponent,
+        LoginFormComponent,
+        CurrentUserComponent,
     ],
     imports: [
         BrowserModule,

@@ -20,8 +20,9 @@
             </li>
         </ul>
         <div class="sidebar-nav">
-            <app-icon-link [link]="'/account'" [iconName]="'user-circle'" />
-            <app-icon-link [link]="'/cart'" [iconName]="'cart-shopping'" />
+            <app-icon-link [link]="'/account'" [iconName]="'user-circle'"
+                (iconClick)="sidebarService.toggleSidebar()" />
+            <app-icon-link [link]="'/cart'" [iconName]="'cart-shopping'" (iconClick)="sidebarService.toggleSidebar()" />
         </div>
     </nav>
 
