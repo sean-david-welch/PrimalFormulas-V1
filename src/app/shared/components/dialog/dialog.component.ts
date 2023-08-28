@@ -12,10 +12,8 @@ export class DialogComponent {
 
     @ViewChild('dialog') dialog!: ElementRef<HTMLDialogElement>;
 
-    toggleDialog() {
-        this.showForm = !this.showForm;
+    private updateDialogState() {
         const dialogElement = this.dialog.nativeElement;
-
         if (this.showForm) {
             dialogElement.showModal();
             dialogElement.classList.add('dialog-visible');
@@ -25,10 +23,13 @@ export class DialogComponent {
         }
     }
 
+    toggleDialog() {
+        this.showForm = !this.showForm;
+        this.updateDialogState();
+    }
+
     closeDialog() {
         this.showForm = false;
-        const dialogElement = this.dialog.nativeElement;
-        dialogElement.close();
-        dialogElement.classList.remove('dialog-visible');
+        this.updateDialogState();
     }
 }

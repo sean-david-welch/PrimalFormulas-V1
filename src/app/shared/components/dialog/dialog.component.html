@@ -1,8 +1,7 @@
-<button (click)="toggleDialog()">Toggle Dialog</button>
+<app-nav-button text="Login Form" iconName="bracket-right" (onClick)="toggleDialog()" />
 
-
-<dialog #dialog class="dialog">
-    <button class="dialog-btn" formMethod="dialog" (click)="closeDialog()">
+<dialog #dialog class=" dialog">
+    <button class="dialog-btn" (click)="closeDialog()">
         <fa-icon [icon]="faX" />
     </button>
 

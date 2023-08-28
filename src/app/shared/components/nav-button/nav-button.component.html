@@ -1,5 +1,8 @@
-<button class="nav-button">
-    <a class="nav-link" [routerLink]="[link]">{{text}}
+<button class="nav-button" (click)="onClick.emit()">
+    <a class="nav-link" [routerLink]="[link]" *ngIf="link">{{text}}
         <fa-icon [icon]="icon" class="icon" />
     </a>
+
+    <p *ngIf="!link">{{text}} <fa-icon [icon]="icon" class="icon" />
+    </p>
 </button>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { icons } from './icons.constants';
@@ -9,9 +9,10 @@ import { icons } from './icons.constants';
     styleUrls: ['./nav-button.component.css'],
 })
 export class NavButtonComponent {
-    @Input() link: string = '';
+    @Input() link?: string = '';
     @Input() text: string = '';
     @Input() iconName: string = '';
+    @Output() onClick: EventEmitter<void> = new EventEmitter<void>();
 
     get icon(): IconDefinition {
         return icons[this.iconName] || faArrowRight;
