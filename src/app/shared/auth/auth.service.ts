@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { api_base_url } from '../utils/config';
@@ -25,6 +25,15 @@ export class AuthService {
         credentials: Credentials
     ): Observable<AuthResponse> {
         const url = this.constructUrl(endpoint);
-        return this.http.post<AuthResponse>(url, credentials);
+        const headers = new HttpHeaders().set(
+            'Content-Type',
+            'application/x-www-form-urlencoded'
+        );
+
+        let body = new HttpParams();
+        body = body.set('username', credentials.username);
+        body = body.set('password', credentials.password);
+
+        return this.http.post<AuthResponse>(url, body.toString(), { headers });
     }
 }

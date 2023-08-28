@@ -2,8 +2,9 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
         <app-nav-logo />
 
-        <input formControlName="username">
-        <input type="password" formControlName="password">
+        <input formControlName="username" placeholder="Username">
+        <input formControlName="password" placeholder="Password" type="password">
+
         <button type="submit">Login</button>
     </form>
 </app-dialog>
