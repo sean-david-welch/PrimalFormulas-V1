@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -8,6 +8,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
     styleUrls: ['./login-form.component.css'],
 })
 export class LoginFormComponent {
+    @Output() LoginSuccess = new EventEmitter<void>();
+
     form: FormGroup;
 
     constructor(
@@ -24,7 +26,12 @@ export class LoginFormComponent {
         if (this.form.valid) {
             this.authService
                 .login('login', this.form.value)
-                .subscribe((response) => {});
+                .subscribe((response) => {
+                    console.log('Response:', response);
+                    if (response.access_token && response.token_type) {
+                        this.LoginSuccess.emit();
+                    }
+                });
         }
     }
 }

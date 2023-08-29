@@ -17,7 +17,7 @@ export class AuthService {
 
     getAuthStatus(endpoint: string): Observable<AuthStatus> {
         const url = this.constructUrl(endpoint);
-        return this.http.get<AuthStatus>(url);
+        return this.http.get<AuthStatus>(url, { withCredentials: true });
     }
 
     login(
@@ -34,6 +34,14 @@ export class AuthService {
         body = body.set('username', credentials.username);
         body = body.set('password', credentials.password);
 
-        return this.http.post<AuthResponse>(url, body.toString(), { headers });
+        return this.http.post<AuthResponse>(url, body.toString(), {
+            headers,
+            withCredentials: true,
+        });
+    }
+
+    logout(endpoint: string): Observable<any> {
+        const url = this.constructUrl(endpoint);
+        return this.http.post<any>(url, null, { withCredentials: true });
     }
 }

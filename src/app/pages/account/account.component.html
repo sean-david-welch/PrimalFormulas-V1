@@ -6,10 +6,13 @@
 
     <div class="login-section" *ngIf="!isLoggedIn">
         <p>Youre not logged in</p>
-        <app-login-form />
+
+        <app-login-form (loginSuccess)="handleLoginSuccess()" />
+
     </div>
 
     <div class="account-section" *ngIf="isLoggedIn">
         <p>you're logged in</p>
+        <button (click)="logout()">Logout</button>
     </div>
 </section>

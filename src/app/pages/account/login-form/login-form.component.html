@@ -1,10 +1,10 @@
 <app-dialog>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form" method="dialog">
         <app-nav-logo />
 
         <input formControlName="username" placeholder="Username">
         <input formControlName="password" placeholder="Password" type="password">
 
-        <button type="submit">Login</button>
+        <button type="submit" formmethod="dialog">Login</button>
     </form>
 </app-dialog>

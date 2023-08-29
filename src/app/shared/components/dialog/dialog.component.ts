@@ -7,8 +7,8 @@ import { IconDefinition, faX } from '@fortawesome/free-solid-svg-icons';
     styleUrls: ['./dialog.component.css'],
 })
 export class DialogComponent {
-    showForm: boolean = false;
     faX: IconDefinition = faX;
+    showForm: boolean = false;
 
     @ViewChild('dialog') dialog!: ElementRef<HTMLDialogElement>;
 
