@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { api_base_url } from '../utils/config';
-import { AuthStatus, AuthResponse, Credentials } from './auth.models';
+import { AuthStatus, AuthResponse, Credentials, User } from './auth.models';
 
 @Injectable({
     providedIn: 'root',
@@ -18,6 +18,11 @@ export class AuthService {
     getAuthStatus(endpoint: string): Observable<AuthStatus> {
         const url = this.constructUrl(endpoint);
         return this.http.get<AuthStatus>(url, { withCredentials: true });
+    }
+
+    getCurrentUser(endpoint: string): Observable<User> {
+        const url = this.constructUrl(endpoint);
+        return this.http.get<User>(url, { withCredentials: true });
     }
 
     login(

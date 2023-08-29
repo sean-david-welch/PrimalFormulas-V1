@@ -18,6 +18,10 @@ export class AccountComponent implements OnInit {
         this.isLoggedIn = true;
     }
 
+    handleLogoutSuccess(): void {
+        this.isLoggedIn = false;
+    }
+
     logout(): void {
         this.authService
             .logout('logout')

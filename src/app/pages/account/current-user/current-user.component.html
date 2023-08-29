@@ -1,1 +1,11 @@
-<p>current-user works!</p>
+<section id="current-user">
+    <div class="user-card" *ngIf="user">
+        <app-nav-logo [logoHeight]="200" [logoWidth]="200" />
+        <h1 class="item-heading">Current User: {{ user.username }}</h1>
+        <ul class="details">
+            <li>Full Name: {{ user.full_name }}</li>
+            <li>Email: {{ user.email }}</li>
+        </ul>
+        <app-nav-button (click)="logout()" text="Logout" iconName="arrow-right" />
+    </div>
+</section>
