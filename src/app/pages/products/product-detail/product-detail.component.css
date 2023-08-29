@@ -3,7 +3,7 @@
 }
 
 .product-detail {
-    @apply flex flex-row h-[35rem];
+    @apply flex flex-row h-[40rem];
     @apply mx-20 my-10;
     @apply bg-zinc-800 border-zinc-700 border-2 rounded-2xl;
 }
