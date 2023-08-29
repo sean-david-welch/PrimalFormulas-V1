@@ -45,24 +45,20 @@ async def authenticate_user(username: str, password: str) -> Optional[UserDB]:
     return None
 
 
-async def cookie_oauth2_scheme(request: Request) -> str:
-    token = request.cookies.get("access_token")
+async def cookie_oauth2_scheme(request: Request) -> Optional[str]:
+    return request.cookies.get("access_token")
+
+
+async def is_authenticated(
+    token: Optional[str] = Depends(cookie_oauth2_scheme),
+) -> bool:
     if token is None:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Could not find access token",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
-    return token
+        return False
 
-
-async def is_authenticated(token: str = Depends(cookie_oauth2_scheme)) -> bool:
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         username: Optional[str] = payload.get("sub")
-        if username is None:
-            return False
-        return True
+        return username is not None
     except JWTError:
         return False
 

@@ -3,10 +3,8 @@ from fastapi.exceptions import HTTPException
 from fastapi.responses import RedirectResponse, JSONResponse
 from fastapi.security import OAuth2PasswordRequestForm
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 from datetime import timedelta
 from config import settings
-from mangum import Mangum
 import boto3
 import stripe
 import logging
