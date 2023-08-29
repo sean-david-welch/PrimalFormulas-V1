@@ -78,7 +78,6 @@ main {
 }
 
 /* Buttons */
-
 .buttons-grid {
     @apply mx-auto items-center;
 }

@@ -12,6 +12,8 @@ export class NavButtonComponent {
     @Input() link?: string = '';
     @Input() text: string = '';
     @Input() iconName: string = '';
+    @Input() buttonType?: string;
+    @Input() formMethod?: string;
     @Output() onClick: EventEmitter<void> = new EventEmitter<void>();
 
     get icon(): IconDefinition {

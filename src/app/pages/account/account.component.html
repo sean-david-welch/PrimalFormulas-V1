@@ -13,6 +13,6 @@
 
     <div class="account-section" *ngIf="isLoggedIn">
         <p>you're logged in</p>
-        <button (click)="logout()">Logout</button>
+        <app-nav-button (click)="logout()" text="Logout" iconName="arrow-right" />
     </div>
 </section>

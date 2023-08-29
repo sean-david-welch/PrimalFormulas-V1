@@ -1,0 +1,7 @@
+.login-section {
+    @apply flex flex-col items-center;
+}
+
+.account-section {
+    @apply flex flex-col items-center;
+}
