@@ -249,11 +249,6 @@ async def get_authentication_status(authenticated: bool = Depends(is_authenticat
     return {"is_authenticated": authenticated}
 
 
-@app.get("/api/is-superuser")
-async def get_superuser_status(current_user: User = Depends(get_current_user)):
-    return {"is_superuser": current_user.is_superuser}
-
-
 ############################
 ######### PRODUCTS #########
 ############################
