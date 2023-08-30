@@ -1,12 +1,12 @@
-import { createReducer, on } from '@ngrx/store';
-import { storeUser } from './user.actions';
+import { Action, createReducer, on } from '@ngrx/store';
+import { removeUser, storeUser } from './user.actions';
 import { User } from '../../auth/auth.models';
 
 export interface UserState {
     user: User;
 }
 
-const initialState: UserState = {
+const initialUser: UserState = {
     user: {
         id: '',
         username: '',
@@ -18,13 +18,17 @@ const initialState: UserState = {
 };
 
 const userReducerInternal = createReducer(
-    initialState,
+    initialUser,
     on(storeUser, (state, { user }) => ({
         ...state,
         user,
+    })),
+    on(removeUser, (state) => ({
+        ...state,
+        user: initialUser.user,
     }))
 );
 
-export function userReducer(state: UserState | undefined, action: any) {
+export function userReducer(state: UserState | undefined, action: Action) {
     return userReducerInternal(state, action);
 }

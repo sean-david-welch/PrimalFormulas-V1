@@ -1,10 +1,10 @@
 .products {
-    @apply flex flex-col;
+    @apply flex flex-col items-center;
     @apply my-10;
 }
 
 .products-grid {
-    @apply grid grid-cols-3;
+    @apply grid grid-cols-3 gap-10;
 }
 
 .product-card {
