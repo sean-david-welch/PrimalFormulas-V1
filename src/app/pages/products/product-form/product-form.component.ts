@@ -20,6 +20,7 @@ export class CreateProductFormComponent implements OnChanges {
         private productsService: ProductsService
     ) {
         this.form = this.formBuilder.group({
+            id: [{ value: '', disabled: true }],
             name: ['', Validators.required],
             description: ['', Validators.required],
             price: ['', Validators.required],
@@ -30,6 +31,7 @@ export class CreateProductFormComponent implements OnChanges {
     ngOnChanges(): void {
         if (this.selectedProduct) {
             this.form.patchValue({
+                id: this.selectedProduct.id,
                 name: this.selectedProduct.name,
                 description: this.selectedProduct.description,
                 price: this.selectedProduct.price,
@@ -66,11 +68,16 @@ export class CreateProductFormComponent implements OnChanges {
 
     public onSubmit(): void {
         if (this.form.valid) {
-            const product: Product = this.form.value;
+            const product: Product = this.form.getRawValue();
             if (this.mode === 'create') {
                 this.createProduct(product);
             } else if (this.mode === 'update') {
-                this.updateProduct(product, product.id);
+                console.log('Product Id', product.id);
+                if (product.id) {
+                    this.updateProduct(product, product.id);
+                } else {
+                    alert('Product ID is missing');
+                }
             }
         }
     }

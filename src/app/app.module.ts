@@ -48,6 +48,7 @@ import { CurrentUserComponent } from './pages/account/current-user/current-user.
 import { AuthDirective } from './lib/auth/auth.directive';
 import { DialogComponent } from './shared/components/dialog/dialog.component';
 import { CreateProductFormComponent } from './pages/products/product-form/product-form.component';
+import { DeleteButtonComponent } from './shared/components/delete-button/delete-button.component';
 
 @NgModule({
     declarations: [
@@ -79,6 +80,7 @@ import { CreateProductFormComponent } from './pages/products/product-form/produc
         AuthDirective,
         DialogComponent,
         CreateProductFormComponent,
+        DeleteButtonComponent,
     ],
     imports: [
         FormsModule,

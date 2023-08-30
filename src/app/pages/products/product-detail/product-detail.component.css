@@ -1,5 +1,5 @@
 .product-section {
-    @apply mx-10;
+    @apply flex flex-col mx-10 items-center;
 }
 
 .product-detail {

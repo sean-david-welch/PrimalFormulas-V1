@@ -3,6 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Product } from '../products.models';
 import { ProductsService } from '../products.service';
+import { User } from 'src/app/lib/auth/auth.models';
+import { Store } from '@ngrx/store';
+import { selectUser } from 'src/app/lib/store/user/user.selectors';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-product-detail',
@@ -10,6 +14,7 @@ import { ProductsService } from '../products.service';
     styleUrls: ['./product-detail.component.css'],
 })
 export class ProductDetailComponent implements OnInit {
+    public user$: Observable<User>;
     product: Product = {
         id: '',
         name: '',
@@ -21,8 +26,11 @@ export class ProductDetailComponent implements OnInit {
 
     constructor(
         private productsService: ProductsService,
-        private route: ActivatedRoute
-    ) {}
+        private route: ActivatedRoute,
+        private store: Store
+    ) {
+        this.user$ = this.store.select(selectUser);
+    }
 
     private fetchProduct(): void {
         this.route.params.subscribe((params) => {
