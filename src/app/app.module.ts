@@ -47,6 +47,7 @@ import { LoginFormComponent } from './pages/account/login-form/login-form.compon
 import { CurrentUserComponent } from './pages/account/current-user/current-user.component';
 import { AuthDirective } from './lib/auth/auth.directive';
 import { DialogComponent } from './shared/components/dialog/dialog.component';
+import { CreateProductFormComponent } from './pages/products/create-product-form/create-product-form.component';
 
 @NgModule({
     declarations: [
@@ -77,6 +78,7 @@ import { DialogComponent } from './shared/components/dialog/dialog.component';
         CurrentUserComponent,
         AuthDirective,
         DialogComponent,
+        CreateProductFormComponent,
     ],
     imports: [
         FormsModule,

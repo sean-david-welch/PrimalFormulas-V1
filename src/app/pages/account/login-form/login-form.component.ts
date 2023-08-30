@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AuthService } from 'src/app/lib/auth/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
     styleUrls: ['./login-form.component.css'],
 })
 export class LoginFormComponent {
+    @Input() text!: string;
     @Output() LoginSuccess = new EventEmitter<void>();
 
     form: FormGroup;

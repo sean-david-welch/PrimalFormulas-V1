@@ -7,7 +7,7 @@
     <div class="login-section" *ngIf="!isLoggedIn">
         <app-nav-logo [logoHeight]="200" [logoWidth]="200" />
         <h1 class="item-heading">You're not Logged In:</h1>
-        <app-login-form (LoginSuccess)="handleLoginSuccess()" />
+        <app-login-form text="Login Form" (LoginSuccess)="handleLoginSuccess()" />
     </div>
 
     <div class="account-section" *ngIf="isLoggedIn">

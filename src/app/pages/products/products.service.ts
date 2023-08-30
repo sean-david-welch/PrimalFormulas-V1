@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -51,5 +51,23 @@ export class ProductsService {
                 );
             })
         );
+    }
+
+    createProduct(endpoint: string, product: Product): Observable<Product> {
+        const url = this.constructUrl(endpoint);
+        return this.http
+            .post<Product>(url, product, { withCredentials: true })
+            .pipe(
+                catchError((error) => {
+                    console.error('Failed to create product', error);
+                    return throwError(
+                        () =>
+                            new Error(
+                                'An error occurred while creating the product',
+                                error.message
+                            )
+                    );
+                })
+            );
     }
 }

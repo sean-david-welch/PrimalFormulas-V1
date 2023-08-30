@@ -20,9 +20,9 @@
             </div>
         </div>
 
-        <div *ngIf="user$ | async as user">
-            <app-nav-button *ngIf="user.is_superuser" text="Create Product" iconName="bracket-right" />
-        </div>
+        <ng-container *ngIf="user$ | async as user">
+            <app-create-product-form text="Product Form" />
+        </ng-container>
     </div>
 
 </section>

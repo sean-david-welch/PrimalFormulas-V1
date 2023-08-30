@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { IconDefinition, faX } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -10,6 +10,7 @@ export class DialogComponent {
     faX: IconDefinition = faX;
     showForm: boolean = false;
 
+    @Input() text!: string;
     @ViewChild('dialog') dialog!: ElementRef<HTMLDialogElement>;
 
     private updateDialogState() {

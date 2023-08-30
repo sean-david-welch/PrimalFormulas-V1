@@ -38,7 +38,7 @@ main {
 
 /* Forms */
 .form {
-    @apply flex flex-col bg-zinc-800 text-center p-10 items-center;
+    @apply flex flex-col bg-zinc-800 text-center px-10 items-center;
 }
 
 .form > * {
