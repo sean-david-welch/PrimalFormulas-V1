@@ -27,11 +27,22 @@ export class ProductsComponent implements OnInit {
         return `/products/${id}`;
     }
 
-    ngOnInit(): void {
-        this.isLoading = true;
+    private fetchProducts(): void {
         this.productsService.fetchProducts('products').subscribe((response) => {
             this.products = response;
             this.isLoading = false;
+        });
+    }
+
+    ngOnInit(): void {
+        this.isLoading = true;
+
+        this.fetchProducts();
+
+        this.productsService.productUpdate$.subscribe((newProduct) => {
+            if (newProduct) {
+                this.fetchProducts();
+            }
         });
     }
 }

@@ -30,14 +30,8 @@ export class CreateProductFormComponent {
             const product: Product = this.form.value;
             this.productsService.createProduct('products', product).subscribe(
                 (response: Product) => {
-                    if (
-                        response.name &&
-                        response.description &&
-                        response.price &&
-                        response.image
-                    ) {
-                        this.form.reset();
-                    }
+                    this.form.reset();
+                    this.productsService.notifyProductAdded(response);
                 },
                 (error: Error) => {
                     console.error('Error occurred:', error.message);
