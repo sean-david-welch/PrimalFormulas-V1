@@ -11,7 +11,7 @@ import { api_base_url } from 'src/app/shared/utils/config';
 })
 export class ProductsService {
     private productUpdate = new BehaviorSubject<Product | null>(null);
-    productUpdate$ = this.productUpdate.asObservable();
+    public productUpdate$ = this.productUpdate.asObservable();
 
     private constructUrl(endpoint: string, params?: string): string {
         return params
@@ -21,11 +21,11 @@ export class ProductsService {
 
     constructor(private http: HttpClient) {}
 
-    notifyProductAdded(product: Product): void {
+    public notifyProductAdded(product: Product): void {
         this.productUpdate.next(product);
     }
 
-    fetchProducts(endpoint: string): Observable<Product[]> {
+    public fetchProducts(endpoint: string): Observable<Product[]> {
         const url = this.constructUrl(endpoint);
         return this.http.get<Product[]>(url).pipe(
             catchError((error) => {
@@ -41,7 +41,7 @@ export class ProductsService {
         );
     }
 
-    fetchSingleProduct(
+    public fetchSingleProduct(
         endpoint: string,
         productId: string
     ): Observable<Product> {
@@ -60,7 +60,10 @@ export class ProductsService {
         );
     }
 
-    createProduct(endpoint: string, product: Product): Observable<Product> {
+    public createProduct(
+        endpoint: string,
+        product: Product
+    ): Observable<Product> {
         const url = this.constructUrl(endpoint);
         return this.http
             .post<Product>(url, product, { withCredentials: true })
@@ -71,6 +74,28 @@ export class ProductsService {
                         () =>
                             new Error(
                                 'An error occurred while creating the product',
+                                error.message
+                            )
+                    );
+                })
+            );
+    }
+
+    public updateProduct(
+        endpoint: string,
+        product: Product,
+        productId: string
+    ): Observable<Product> {
+        const url = this.constructUrl(endpoint, productId);
+        return this.http
+            .put<Product>(url, product, { withCredentials: true })
+            .pipe(
+                catchError((error) => {
+                    console.error('Failed to fetch product by ID', error);
+                    return throwError(
+                        () =>
+                            new Error(
+                                'An error occured when fetching the product',
                                 error.message
                             )
                     );

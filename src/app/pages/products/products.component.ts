@@ -12,26 +12,15 @@ import { selectUser } from 'src/app/lib/store/user/user.selectors';
     styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
-    user$: Observable<User>;
-    products: Product[] = [];
-    isLoading = <boolean>false;
+    public user$: Observable<User>;
+    public products: Product[] = [];
+    public isLoading = <boolean>false;
 
     constructor(
         private productsService: ProductsService,
         private store: Store
     ) {
         this.user$ = this.store.select(selectUser);
-    }
-
-    public getProductLink(id: string): string {
-        return `/products/${id}`;
-    }
-
-    private fetchProducts(): void {
-        this.productsService.fetchProducts('products').subscribe((response) => {
-            this.products = response;
-            this.isLoading = false;
-        });
     }
 
     ngOnInit(): void {
@@ -43,6 +32,17 @@ export class ProductsComponent implements OnInit {
             if (newProduct) {
                 this.fetchProducts();
             }
+        });
+    }
+
+    public getProductLink(id: string): string {
+        return `/products/${id}`;
+    }
+
+    private fetchProducts(): void {
+        this.productsService.fetchProducts('products').subscribe((response) => {
+            this.products = response;
+            this.isLoading = false;
         });
     }
 }

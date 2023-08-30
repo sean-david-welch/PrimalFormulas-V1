@@ -24,20 +24,32 @@ export class ProductDetailComponent implements OnInit {
         private route: ActivatedRoute
     ) {}
 
-    ngOnInit(): void {
-        this.isLoading = true;
+    private fetchProduct(): void {
         this.route.params.subscribe((params) => {
             const id = params['id'];
             this.productsService.fetchSingleProduct('products', id).subscribe({
                 next: (product) => {
                     this.product = product;
                     this.isLoading = false;
+                    console.log(this.product);
                 },
                 error: (err) => {
                     this.isLoading = false;
                     console.log(err.message);
                 },
             });
+        });
+    }
+
+    ngOnInit(): void {
+        this.isLoading = true;
+
+        this.fetchProduct();
+
+        this.productsService.productUpdate$.subscribe((newProduct) => {
+            if (newProduct) {
+                this.fetchProduct();
+            }
         });
     }
 }

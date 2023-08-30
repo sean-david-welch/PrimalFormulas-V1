@@ -21,7 +21,7 @@
         </div>
 
         <ng-container *ngIf="user$ | async as user">
-            <app-create-product-form text="Product Form" />
+            <app-product-form text="Product Form" mode="create" />
         </ng-container>
     </div>
 
