@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { catchError } from 'rxjs';
 
-import { AuthStatus } from 'src/app/shared/auth/auth.models';
-import { AuthService } from 'src/app/shared/auth/auth.service';
+import { AuthStatus } from 'src/app/lib/auth/auth.models';
+import { AuthService } from 'src/app/lib/auth/auth.service';
 
 @Component({
     selector: 'app-account',

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { AuthService } from 'src/app/shared/auth/auth.service';
+import { AuthService } from 'src/app/lib/auth/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({

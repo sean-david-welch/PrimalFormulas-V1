@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { catchError } from 'rxjs';
 
-import { User } from 'src/app/shared/auth/auth.models';
-import { AuthService } from 'src/app/shared/auth/auth.service';
+import { User } from 'src/app/lib/auth/auth.models';
+import { AuthService } from 'src/app/lib/auth/auth.service';
 
 @Component({
     selector: 'app-current-user',
