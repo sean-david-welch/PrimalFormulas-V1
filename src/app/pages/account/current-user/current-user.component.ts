@@ -1,8 +1,11 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { catchError } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { Observable, catchError } from 'rxjs';
 
 import { User } from 'src/app/lib/auth/auth.models';
 import { AuthService } from 'src/app/lib/auth/auth.service';
+import { storeUser } from 'src/app/lib/store/user/user.actions';
+import { selectUser } from 'src/app/lib/store/user/user.selectors';
 
 @Component({
     selector: 'app-current-user',
@@ -12,14 +15,7 @@ import { AuthService } from 'src/app/lib/auth/auth.service';
 export class CurrentUserComponent implements OnInit {
     @Output() logoutEvent = new EventEmitter<void>();
 
-    user: User = {
-        id: '',
-        username: '',
-        email: '',
-        full_name: '',
-        disabled: false,
-        is_superuser: false,
-    };
+    user$: Observable<User>;
 
     logout(): void {
         this.authService
@@ -34,14 +30,17 @@ export class CurrentUserComponent implements OnInit {
             });
     }
 
-    constructor(private authService: AuthService) {}
+    constructor(private authService: AuthService, private store: Store) {
+        this.user$ = this.store.select(selectUser);
+    }
 
     ngOnInit(): void {
         this.authService
             .getCurrentUser('current-user')
             .subscribe((response: User) => {
-                console.log(response);
-                this.user = response;
+                if (response.username) {
+                    this.store.dispatch(storeUser({ user: response }));
+                }
             });
     }
 }

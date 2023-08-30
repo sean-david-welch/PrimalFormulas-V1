@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 // NgRx
 import { StoreModule } from '@ngrx/store';
+import { userReducer } from './lib/store/user/user.reducers';
 
 //Pages
 import { AboutComponent } from './pages/about/about.component';
@@ -84,7 +85,7 @@ import { DialogComponent } from './shared/components/dialog/dialog.component';
         AppRoutingModule,
         FontAwesomeModule,
         ReactiveFormsModule,
-        StoreModule.forRoot({}),
+        StoreModule.forRoot({ user: userReducer }),
     ],
     providers: [],
     bootstrap: [AppComponent],

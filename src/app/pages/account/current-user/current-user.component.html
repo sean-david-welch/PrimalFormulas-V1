@@ -1,5 +1,5 @@
 <section id="current-user">
-    <div class="user-card" *ngIf="user">
+    <div class="user-card" *ngIf="user$ | async as user">
         <app-nav-logo [logoHeight]="200" [logoWidth]="200" />
         <h1 class="item-heading">Current User: {{ user.username }}</h1>
         <ul class="details">

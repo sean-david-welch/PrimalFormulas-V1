@@ -22,19 +22,6 @@ export class AccountComponent implements OnInit {
         this.isLoggedIn = false;
     }
 
-    logout(): void {
-        this.authService
-            .logout('logout')
-            .pipe(
-                catchError((err) => {
-                    return [];
-                })
-            )
-            .subscribe((response) => {
-                this.isLoggedIn = false;
-            });
-    }
-
     ngOnInit(): void {
         this.authService
             .getAuthStatus('is-authenticated')
