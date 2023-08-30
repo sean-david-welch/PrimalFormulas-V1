@@ -115,7 +115,7 @@ async def create_content(
     if existing_content:
         raise HTTPException(status_code=400, detail="Content already exists")
 
-    content_db = StaticContent(**content.dict())
+    content_db = StaticContent(**content.model_dump())
     await create_content_db(content_db)
 
     return {"message": "Content created successfully"}
@@ -143,7 +143,7 @@ async def create_about(
     if existing_about:
         raise HTTPException(status_code=400, detail="About already exists")
 
-    about_db = AboutContent(**about.dict())
+    about_db = AboutContent(**about.model_dump())
     await create_about_db(about_db)
 
     return {"message": "About created successfully"}
@@ -176,7 +176,7 @@ async def register(user: UserCreate, current_user: User = Depends(get_current_us
         raise HTTPException(status_code=400, detail="Username already exists")
 
     hashed_password = get_password_hash(user.password)
-    user_db = UserDB(**user.dict(), hashed_password=hashed_password)
+    user_db = UserDB(**user.model_dump(), hashed_password=hashed_password)
     await create_user(user_db)
 
     return {"message": "User created successfully"}
@@ -200,7 +200,7 @@ async def edit_user_account(
     if not current_user.is_superuser:
         raise HTTPException(status_code=403, detail="Permission denied")
 
-    user_data = user.dict(exclude_unset=True)
+    user_data = user.model_dump(exclude_unset=True)
     if "password" in user_data:
         user_data["hashed_password"] = get_password_hash(user_data.pop("password"))
 
@@ -274,7 +274,7 @@ async def create_product(
     if not current_user.is_superuser:
         raise HTTPException(status_code=403, detail="Permission denied")
 
-    response = await post_product(product.dict())
+    response = await post_product(product.model_dump())
     if response:
         return response
     raise HTTPException(
@@ -291,7 +291,7 @@ async def update_product(
     if not current_user.is_superuser:
         raise HTTPException(status_code=403, detail="Permission denied")
 
-    response = await put_product(product_id, product.dict(exclude_unset=True))
+    response = await put_product(product_id, product.model_dump(exclude_unset=True))
     if response:
         return response
     raise HTTPException(status_code=404, detail=f"Product: {product_id} not found")
