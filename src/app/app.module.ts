@@ -9,6 +9,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+// NgRx
+import { StoreModule } from '@ngrx/store';
+
 //Pages
 import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -41,7 +44,7 @@ import { IntersectionObserverDirective } from './shared/directives/intersection-
 import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loading-spinner.component';
 import { LoginFormComponent } from './pages/account/login-form/login-form.component';
 import { CurrentUserComponent } from './pages/account/current-user/current-user.component';
-import { AuthDirective } from './shared/auth/auth.directive';
+import { AuthDirective } from './lib/auth/auth.directive';
 import { DialogComponent } from './shared/components/dialog/dialog.component';
 
 @NgModule({
@@ -75,12 +78,13 @@ import { DialogComponent } from './shared/components/dialog/dialog.component';
         DialogComponent,
     ],
     imports: [
-        BrowserModule,
         FormsModule,
-        ReactiveFormsModule,
+        BrowserModule,
         HttpClientModule,
         AppRoutingModule,
         FontAwesomeModule,
+        ReactiveFormsModule,
+        StoreModule.forRoot({}),
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { api_base_url } from '../utils/config';
+import { api_base_url } from 'src/app/shared/utils/config';
 import { AuthStatus, AuthResponse, Credentials, User } from './auth.models';
 
 @Injectable({
