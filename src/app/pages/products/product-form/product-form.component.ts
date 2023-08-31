@@ -6,7 +6,6 @@ import { Product } from '../products.models';
 @Component({
     selector: 'app-product-form',
     templateUrl: './product-form.component.html',
-    styleUrls: ['./product-form.component.css'],
 })
 export class CreateProductFormComponent implements OnChanges {
     @Input() text!: string;
