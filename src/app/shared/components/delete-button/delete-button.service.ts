@@ -13,9 +13,9 @@ export class DeleteButtonService {
 
     constructor(private http: HttpClient) {}
 
-    public deleteModel(endpoint: string, modelId: string): Observable<any> {
+    public deleteModel(endpoint: string, modelId: string): Observable<void> {
         const url = this.constructUrl(endpoint, modelId);
 
-        return this.http.delete<any>(url, { withCredentials: true });
+        return this.http.delete<void>(url, { withCredentials: true }).pipe();
     }
 }

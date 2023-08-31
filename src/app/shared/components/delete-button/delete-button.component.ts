@@ -11,6 +11,9 @@ export class DeleteButtonComponent {
     @Input() text!: string;
     @Input() endpoint!: string;
     @Input() id!: string;
+    @Input() returnPath!: string;
+
+    public isLoading: boolean = false;
 
     constructor(
         private deleteButtonService: DeleteButtonService,
@@ -18,11 +21,14 @@ export class DeleteButtonComponent {
     ) {}
 
     onDelete(): void {
-        this.deleteButtonService
-            .deleteModel(this.endpoint, this.id)
-            .subscribe((response) => {
-                console.log(response);
-                this.router.navigate(['/products']);
-            });
+        this.deleteButtonService.deleteModel(this.endpoint, this.id).subscribe({
+            next: () => {
+                this.router.navigate([this.returnPath]);
+            },
+            error: (error: Error) => {
+                this.isLoading = false;
+                console.error(error.message);
+            },
+        });
     }
 }
