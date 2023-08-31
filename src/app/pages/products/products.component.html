@@ -23,10 +23,6 @@
             </div>
         </div>
 
-        <!-- <ng-container *ngIf="user$ | async as user">
-            <app-product-form *ngIf="user.is_superuser" text="Product Form" mode="create" />
-        </ng-container> -->
-
         <app-product-form text="Product Form" mode="create" *isSuperUser />
     </div>
 

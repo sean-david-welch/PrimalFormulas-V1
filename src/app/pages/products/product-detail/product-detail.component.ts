@@ -3,10 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Product } from '../products.models';
 import { ProductsService } from '../products.service';
-import { User } from 'src/app/lib/auth/auth.models';
-import { Store } from '@ngrx/store';
-import { selectUser } from 'src/app/lib/store/user/user.selectors';
-import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-product-detail',
@@ -14,7 +10,6 @@ import { Observable } from 'rxjs';
     styleUrls: ['./product-detail.component.css'],
 })
 export class ProductDetailComponent implements OnInit {
-    public user$: Observable<User>;
     product: Product = {
         id: '',
         name: '',
@@ -26,24 +21,20 @@ export class ProductDetailComponent implements OnInit {
 
     constructor(
         private productsService: ProductsService,
-        private route: ActivatedRoute,
-        private store: Store
-    ) {
-        this.user$ = this.store.select(selectUser);
-    }
+        private route: ActivatedRoute
+    ) {}
 
-    private fetchProduct(): void {
+    private getProduct(): void {
         this.route.params.subscribe((params) => {
             const id = params['id'];
             this.productsService.fetchSingleProduct('products', id).subscribe({
                 next: (product) => {
                     this.product = product;
                     this.isLoading = false;
-                    console.log(this.product);
                 },
-                error: (err) => {
+                error: (error: Error) => {
                     this.isLoading = false;
-                    console.log(err.message);
+                    console.log(error.message);
                 },
             });
         });
@@ -52,11 +43,11 @@ export class ProductDetailComponent implements OnInit {
     ngOnInit(): void {
         this.isLoading = true;
 
-        this.fetchProduct();
+        this.getProduct();
 
         this.productsService.productUpdate$.subscribe((newProduct) => {
             if (newProduct) {
-                this.fetchProduct();
+                this.getProduct();
             }
         });
     }

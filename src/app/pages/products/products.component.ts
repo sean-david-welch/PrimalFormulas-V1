@@ -16,11 +16,11 @@ export class ProductsComponent implements OnInit {
     ngOnInit(): void {
         this.isLoading = true;
 
-        this.fetchProducts();
+        this.getProducts();
 
         this.productsService.productUpdate$.subscribe((newProduct) => {
             if (newProduct) {
-                this.fetchProducts();
+                this.getProducts();
             }
         });
     }
@@ -29,10 +29,16 @@ export class ProductsComponent implements OnInit {
         return `/products/${id}`;
     }
 
-    private fetchProducts(): void {
-        this.productsService.fetchProducts('products').subscribe((response) => {
-            this.products = response;
-            this.isLoading = false;
+    private getProducts(): void {
+        this.productsService.fetchProducts('products').subscribe({
+            next: (response) => {
+                this.products = response;
+                this.isLoading = false;
+            },
+            error: (error: Error) => {
+                this.isLoading = false;
+                console.log(error.message);
+            },
         });
     }
 }

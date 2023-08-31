@@ -13,13 +13,18 @@ export class ProductsService {
     private productUpdate = new BehaviorSubject<Product | null>(null);
     public productUpdate$ = this.productUpdate.asObservable();
 
+    constructor(private http: HttpClient) {}
+
     private constructUrl(endpoint: string, params?: string): string {
         return params
             ? `${api_base_url}/${endpoint}/${params}`
             : `${api_base_url}/${endpoint}`;
     }
 
-    constructor(private http: HttpClient) {}
+    private handleError(error: any) {
+        console.error('An error occurred', error);
+        return throwError(() => new Error('An error occurred', error.message));
+    }
 
     public notifyProductAdded(product: Product): void {
         this.productUpdate.next(product);
@@ -27,18 +32,7 @@ export class ProductsService {
 
     public fetchProducts(endpoint: string): Observable<Product[]> {
         const url = this.constructUrl(endpoint);
-        return this.http.get<Product[]>(url).pipe(
-            catchError((error) => {
-                console.error('Failed to fetch products array', error);
-                return throwError(
-                    () =>
-                        new Error(
-                            'An error occured while fetching products',
-                            error.message
-                        )
-                );
-            })
-        );
+        return this.http.get<Product[]>(url).pipe(catchError(this.handleError));
     }
 
     public fetchSingleProduct(
@@ -46,18 +40,7 @@ export class ProductsService {
         productId: string
     ): Observable<Product> {
         const url = this.constructUrl(endpoint, productId);
-        return this.http.get<Product>(url).pipe(
-            catchError((error) => {
-                console.error('Failed to fetch product by ID', error);
-                return throwError(
-                    () =>
-                        new Error(
-                            'An error occured when fetching the product',
-                            error.message
-                        )
-                );
-            })
-        );
+        return this.http.get<Product>(url).pipe(catchError(this.handleError));
     }
 
     public createProduct(
@@ -67,18 +50,7 @@ export class ProductsService {
         const url = this.constructUrl(endpoint);
         return this.http
             .post<Product>(url, product, { withCredentials: true })
-            .pipe(
-                catchError((error) => {
-                    console.error('Failed to create product', error);
-                    return throwError(
-                        () =>
-                            new Error(
-                                'An error occurred while creating the product',
-                                error.message
-                            )
-                    );
-                })
-            );
+            .pipe(catchError(this.handleError));
     }
 
     public updateProduct(
@@ -89,17 +61,6 @@ export class ProductsService {
         const url = this.constructUrl(endpoint, productId);
         return this.http
             .put<Product>(url, product, { withCredentials: true })
-            .pipe(
-                catchError((error) => {
-                    console.error('Failed to fetch product by ID', error);
-                    return throwError(
-                        () =>
-                            new Error(
-                                'An error occured when fetching the product',
-                                error.message
-                            )
-                    );
-                })
-            );
+            .pipe(catchError(this.handleError));
     }
 }

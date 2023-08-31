@@ -30,54 +30,39 @@ export class CreateProductFormComponent implements OnChanges {
 
     ngOnChanges(): void {
         if (this.selectedProduct) {
-            this.form.patchValue({
-                id: this.selectedProduct.id,
-                name: this.selectedProduct.name,
-                description: this.selectedProduct.description,
-                price: this.selectedProduct.price,
-                image: this.selectedProduct.image,
-            });
+            this.form.patchValue(this.selectedProduct);
         }
     }
 
-    private createProduct(product: Product): void {
-        this.productsService.createProduct('products', product).subscribe({
+    private handleProduct(
+        action: 'create' | 'update',
+        product: Product,
+        id?: string
+    ): void {
+        const apiCall =
+            action === 'create'
+                ? this.productsService.createProduct('products', product)
+                : this.productsService.updateProduct('products', product, id!);
+
+        apiCall.subscribe({
             next: (response: Product) => {
                 this.form.reset();
                 this.productsService.notifyProductAdded(response);
             },
-            error: (error: Error) => {
-                console.error('Error occurred:', error.message);
-            },
+            error: (error: Error) =>
+                console.error('Error occurred:', error.message),
         });
-    }
-
-    private updateProduct(product: Product, productId: string): void {
-        this.productsService
-            .updateProduct('products', product, productId)
-            .subscribe({
-                next: (response: Product) => {
-                    this.form.reset();
-                    this.productsService.notifyProductAdded(response);
-                },
-                error: (error: Error) => {
-                    console.error('Error occurred:', error.message);
-                },
-            });
     }
 
     public onSubmit(): void {
         if (this.form.valid) {
             const product: Product = this.form.getRawValue();
             if (this.mode === 'create') {
-                this.createProduct(product);
-            } else if (this.mode === 'update') {
-                console.log('Product Id', product.id);
-                if (product.id) {
-                    this.updateProduct(product, product.id);
-                } else {
-                    alert('Product ID is missing');
-                }
+                this.handleProduct('create', product);
+            } else if (this.mode === 'update' && product.id) {
+                this.handleProduct('update', product, product.id);
+            } else {
+                alert('Product ID is missing');
             }
         }
     }

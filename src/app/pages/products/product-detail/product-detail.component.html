@@ -27,12 +27,10 @@
 
         </div>
 
-        <div class="buttons-grid" *ngIf="user$ | async as user">
-            <app-product-form text="Update Product" mode="update" [selectedProduct]="product"
-                *ngIf="user.is_superuser" />
-
+        <div class="buttons-grid" *isSuperUser="true">
+            <app-product-form text="Update Product" mode="update" [selectedProduct]="product" />
             <app-delete-button text="Delete Product" [id]="product.id" endpoint="products"
-                *ngIf="user.is_superuser" returnPath="/products" />
+                returnPath="/products" />
         </div>
 
     </div>
