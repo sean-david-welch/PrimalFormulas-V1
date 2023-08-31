@@ -3,12 +3,14 @@ import {
     faArrowRight,
     faCartPlus,
     faRightFromBracket,
+    faTrash,
     faX,
 } from '@fortawesome/free-solid-svg-icons';
 
 export const icons: Record<string, IconDefinition> = {
+    'fa-x': faX,
+    'fa-trash': faTrash,
+    'cart-plus': faCartPlus,
     'arrow-right': faArrowRight,
     'bracket-right': faRightFromBracket,
-    'cart-plus': faCartPlus,
-    'fa-x': faX,
 };
