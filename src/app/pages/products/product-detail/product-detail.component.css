@@ -4,8 +4,10 @@
 
 .product-detail {
     @apply flex flex-row;
-    @apply mx-32 my-10;
+    @apply mx-32 my-2;
     @apply bg-zinc-800 border-zinc-700 border-2 rounded-2xl;
+    @apply transition-all duration-700 ease-in-out;
+    @apply hover:border-yellow-500 hover:scale-105 hover:bg-zinc-900;
 }
 
 .product-detail img {

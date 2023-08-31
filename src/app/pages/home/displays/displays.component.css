@@ -9,7 +9,7 @@
 }
 
 .benefits-list {
-    @apply grid grid-cols-4 gap-6 w-5/6;
+    @apply grid grid-cols-4 gap-16 w-[90%];
     @apply justify-items-center items-center;
 }
 

@@ -49,6 +49,8 @@ import { SuperUserDirective } from './lib/auth/auth.directive';
 import { DialogComponent } from './shared/components/dialog/dialog.component';
 import { CreateProductFormComponent } from './pages/products/product-form/product-form.component';
 import { DeleteButtonComponent } from './shared/components/delete-button/delete-button.component';
+import { RegisterComponent } from './pages/account/register/register.component';
+import { AboutFormComponent } from './pages/about/about-form/about-form.component';
 
 @NgModule({
     declarations: [
@@ -81,6 +83,8 @@ import { DeleteButtonComponent } from './shared/components/delete-button/delete-
         DialogComponent,
         CreateProductFormComponent,
         DeleteButtonComponent,
+        RegisterComponent,
+        AboutFormComponent,
     ],
     imports: [
         FormsModule,

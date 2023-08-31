@@ -4,7 +4,7 @@
 }
 
 .products-grid {
-    @apply grid grid-cols-3 gap-x-20;
+    @apply grid grid-cols-3 gap-x-20 my-5;
 }
 
 .product-card {
