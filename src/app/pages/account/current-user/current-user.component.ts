@@ -29,21 +29,17 @@ export class CurrentUserComponent implements OnInit {
                     throw new Error(error.message);
                 })
             )
-            .subscribe((response) => {
-                if (response.status === 200) {
-                    this.store.dispatch(removeUser());
-                }
+            .subscribe(() => {
+                this.store.dispatch(removeUser());
                 this.logoutEvent.emit();
             });
     }
 
     ngOnInit(): void {
-        this.authService
-            .getCurrentUser('current-user')
-            .subscribe((response: User) => {
-                if (response.username) {
-                    this.store.dispatch(storeUser({ user: response }));
-                }
-            });
+        this.authService.getCurrentUser().subscribe((response: User) => {
+            if (response.username) {
+                this.store.dispatch(storeUser({ user: response }));
+            }
+        });
     }
 }

@@ -27,6 +27,4 @@ export class NavLogoComponent implements OnInit {
             this.isLoading = false;
         });
     }
-
-    logo = this.data.content;
 }

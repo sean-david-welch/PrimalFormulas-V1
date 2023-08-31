@@ -23,10 +23,8 @@ export class AccountComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.authService
-            .getAuthStatus('is-authenticated')
-            .subscribe((response: AuthStatus) => {
-                this.isLoggedIn = response.is_authenticated;
-            });
+        this.authService.getAuthStatus().subscribe((response: AuthStatus) => {
+            this.isLoggedIn = response.is_authenticated;
+        });
     }
 }

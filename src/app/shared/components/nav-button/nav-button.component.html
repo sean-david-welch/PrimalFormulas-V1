@@ -1,5 +1,5 @@
 <button class="nav-button" [attr.type]="buttonType ?? null" [attr.formmethod]="formMethod ?? null"
-    (click)="onClick?.emit()">
+    (click)="onClick.emit()">
 
     <ng-container *ngIf="link">
         <a class="nav-link" [routerLink]="[link]">

@@ -1,5 +1,5 @@
 .benefits-home {
-    @apply flex flex-col mx-auto justify-center;
+    @apply flex flex-col justify-center mx-auto items-center;
     @apply my-16 mx-4 p-4;
     @apply border-t-2 border-b-2 border-zinc-950;
 }
@@ -9,7 +9,8 @@
 }
 
 .benefits-list {
-    @apply grid grid-cols-4 gap-6;
+    @apply grid grid-cols-4 gap-6 w-5/6;
+    @apply justify-items-center items-center;
 }
 
 .benefits-list:nth-child(2) {

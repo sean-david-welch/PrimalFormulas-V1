@@ -21,6 +21,7 @@ export class DeleteButtonComponent {
     ) {}
 
     onDelete(): void {
+        this.isLoading = true;
         this.deleteButtonService.deleteModel(this.endpoint, this.id).subscribe({
             next: () => {
                 this.router.navigate([this.returnPath]);

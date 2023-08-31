@@ -45,7 +45,7 @@ import { IntersectionObserverDirective } from './shared/directives/intersection-
 import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loading-spinner.component';
 import { LoginFormComponent } from './pages/account/login-form/login-form.component';
 import { CurrentUserComponent } from './pages/account/current-user/current-user.component';
-import { AuthDirective } from './lib/auth/auth.directive';
+import { SuperUserDirective } from './lib/auth/auth.directive';
 import { DialogComponent } from './shared/components/dialog/dialog.component';
 import { CreateProductFormComponent } from './pages/products/product-form/product-form.component';
 import { DeleteButtonComponent } from './shared/components/delete-button/delete-button.component';
@@ -77,7 +77,7 @@ import { DeleteButtonComponent } from './shared/components/delete-button/delete-
         LoadingSpinnerComponent,
         LoginFormComponent,
         CurrentUserComponent,
-        AuthDirective,
+        SuperUserDirective,
         DialogComponent,
         CreateProductFormComponent,
         DeleteButtonComponent,

@@ -16,7 +16,7 @@ export class NavButtonComponent {
     @Input() buttonType?: string;
     @Input() formMethod?: string;
 
-    @Output() onClick?: EventEmitter<void> = new EventEmitter<void>();
+    @Output() onClick: EventEmitter<void> = new EventEmitter<void>();
 
     get icon(): IconDefinition {
         return icons[this.iconName] || faArrowRight;

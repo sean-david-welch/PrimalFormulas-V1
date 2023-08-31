@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 
 import { api_base_url } from 'src/app/shared/utils/config';
 import { AuthStatus, AuthResponse, Credentials, User } from './auth.models';
@@ -13,16 +13,27 @@ export class AuthService {
         return `${api_base_url}/${endpoint}`;
     }
 
+    private authOptions = { withCredentials: true };
+
     constructor(private http: HttpClient) {}
 
-    getAuthStatus(endpoint: string): Observable<AuthStatus> {
+    private getAuth<T>(endpoint: string): Observable<T> {
         const url = this.constructUrl(endpoint);
-        return this.http.get<AuthStatus>(url, { withCredentials: true });
+
+        return this.http.get<T>(url, this.authOptions).pipe(
+            catchError((error: Error) => {
+                console.error('Api call failed', error.message);
+                return throwError(() => new Error('An Error Occured'));
+            })
+        );
     }
 
-    getCurrentUser(endpoint: string): Observable<User> {
-        const url = this.constructUrl(endpoint);
-        return this.http.get<User>(url, { withCredentials: true });
+    getAuthStatus(): Observable<AuthStatus> {
+        return this.getAuth<AuthStatus>('is-authenticated');
+    }
+
+    getCurrentUser(): Observable<User> {
+        return this.getAuth<User>('current-user');
     }
 
     login(
@@ -30,23 +41,22 @@ export class AuthService {
         credentials: Credentials
     ): Observable<AuthResponse> {
         const url = this.constructUrl(endpoint);
-        const headers = new HttpHeaders().set(
-            'Content-Type',
-            'application/x-www-form-urlencoded'
-        );
 
         let body = new HttpParams();
         body = body.set('username', credentials.username);
         body = body.set('password', credentials.password);
 
         return this.http.post<AuthResponse>(url, body.toString(), {
-            headers,
-            withCredentials: true,
+            headers: new HttpHeaders().set(
+                'Content-Type',
+                'application/x-www-form-urlencoded'
+            ),
+            ...this.authOptions,
         });
     }
 
-    logout(endpoint: string): Observable<any> {
+    logout(endpoint: string): Observable<void> {
         const url = this.constructUrl(endpoint);
-        return this.http.post<any>(url, null, { withCredentials: true });
+        return this.http.post<void>(url, null, { withCredentials: true });
     }
 }

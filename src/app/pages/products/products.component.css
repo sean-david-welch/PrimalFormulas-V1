@@ -1,10 +1,10 @@
 .products {
-    @apply flex flex-col items-center;
+    @apply flex flex-col items-center w-full;
     @apply my-10;
 }
 
 .products-grid {
-    @apply grid grid-cols-3 gap-10;
+    @apply grid grid-cols-3 gap-x-20;
 }
 
 .product-card {
@@ -25,7 +25,7 @@
 }
 
 .product-card img {
-    @apply max-w-[25rem]  max-h-[19rem] mx-auto;
+    @apply max-w-[25rem] h-[20rem] mx-auto;
     @apply rounded-2xl border-2 border-zinc-600 cursor-pointer;
     @apply transition-all duration-700 ease-in-out;
     @apply hover:border-yellow-500;
