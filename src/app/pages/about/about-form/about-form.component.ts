@@ -55,10 +55,11 @@ export class AboutFormComponent implements OnChanges {
     public onSubmit(): void {
         if (this.form.valid) {
             const about: AboutSection = this.form.getRawValue();
+            console.log('Sending about: ', about);
 
             if (this.mode === 'create') {
                 this.handleModel('create', about);
-            } else if (this.mode === 'update' && about.id) {
+            } else if (this.mode === 'update') {
                 this.handleModel('update', about);
             } else {
                 alert('Product ID is missing');
