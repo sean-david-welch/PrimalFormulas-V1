@@ -18,6 +18,12 @@ class AboutContent(BaseModel):
     image: str = Field(default=f"{settings['BASE_URL']}/images/default.jpg")
 
 
+class AboutUpdate(BaseModel):
+    title: str
+    description: str
+    image: str = Field(default=f"{settings['BASE_URL']}/images/default.jpg")
+
+
 ##### Products #####
 class Product(BaseModel):
     id: Optional[str] = Field(default=None, example="null")

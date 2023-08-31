@@ -35,6 +35,14 @@ async def create_about_db(about: dict):
     return result.inserted_id
 
 
+async def put_about(about_id: str, about: dict):
+    result = await products_collection.update_one({"id": about_id}, {"$set": about})
+    if result.modified_count > 0:
+        document = await products_collection.find_one({"id": about_id})
+        return document
+    return None
+
+
 async def fetch_all_about():
     about = []
     cursor = about_collection.find({})
@@ -51,7 +59,7 @@ async def get_about_db(id: str) -> AboutContent:
 
 #### User CRUD ####
 async def create_user(user: UserDB):
-    user_data = user.dict()
+    user_data = user.model_dump()
     user_data["id"] = str(user_data["id"])
     result = await users_collection.insert_one(user_data)
     return result.inserted_id

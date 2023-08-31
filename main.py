@@ -38,6 +38,7 @@ from models import (
     UserEdit,
     StaticContent,
     AboutContent,
+    AboutUpdate,
     CheckoutSession,
     CheckoutSessionInput,
 )
@@ -47,6 +48,7 @@ from database import (
     create_about_db,
     fetch_all_about,
     get_about_db,
+    put_about,
     fetch_all_products,
     fetch_product,
     post_product,
@@ -147,6 +149,19 @@ async def create_about(
     await create_about_db(about_db)
 
     return {"message": "About created successfully"}
+
+
+@app.put("/api/about/{id}", response_model=AboutContent)
+async def update_about(
+    about_id: str, about: AboutUpdate, current_user: User = Depends(get_current_user)
+):
+    if not current_user.is_superuser:
+        raise HTTPException(status_code=403, detail="Permission denied")
+
+    response = await put_about(about_id, about.model_dump(exclude_unset=True))
+    if response:
+        return response
+    raise HTTPException(status_code=404, detail=f"About {about_id} not found")
 
 
 @app.get("/api/about")
