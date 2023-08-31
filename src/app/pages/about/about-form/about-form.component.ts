@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AboutService } from '../about.service';
 import { AboutSection } from '../about.models';
@@ -20,14 +20,13 @@ export class AboutFormComponent implements OnChanges {
     ) {
         this.form = this.formBuilder.group({
             id: [{ value: '', disabled: true }],
-            name: ['', Validators.required],
+            title: ['', Validators.required],
             description: ['', Validators.required],
-            price: ['', Validators.required],
             image: ['', Validators.required],
         });
     }
 
-    ngOnChanges(changes: SimpleChanges): void {
+    ngOnChanges(): void {
         if (this.selectedModel) {
             this.form.patchValue(this.selectedModel);
         }

@@ -1,5 +1,5 @@
-#about {
-    @apply my-10;
+.about {
+    @apply my-10 flex flex-col items-center;
 }
 
 .about-card {
@@ -21,7 +21,7 @@
     @apply flex flex-col my-5;
 }
 
-.about-info > :last-child {
+.about-info > :nth-child(2) {
     @apply my-5 mx-24 text-2xl font-light;
 }
 
