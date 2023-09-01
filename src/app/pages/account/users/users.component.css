@@ -1,0 +1,17 @@
+.users {
+    @apply grid grid-cols-3 gap-10 p-10;
+    @apply bg-zinc-800 border-4 border-zinc-600 rounded-2xl;
+    @apply transition-all duration-700 ease-in-out;
+    @apply hover:border-yellow-500 hover:bg-zinc-900;
+}
+
+.user-card {
+    @apply flex flex-col items-center p-4;
+    @apply rounded-2xl border-2 border-zinc-700 bg-zinc-600;
+    @apply transition-all duration-700 ease-in-out;
+    @apply hover:border-yellow-500 hover:bg-zinc-800;
+}
+
+.user-card > * {
+    @apply my-1;
+}
