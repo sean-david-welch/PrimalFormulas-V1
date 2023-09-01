@@ -61,6 +61,7 @@ import { AddToCartDirective } from './shared/directives/add-to-cart.directive';
 import { RemoveFromCartDirective } from './shared/directives/remove-from-cart.directive';
 import { UpdateCartQuanitityDirective } from './shared/directives/update-cart-quanitity.directive';
 import { IntersectionObserverDirective } from './shared/directives/intersection-observer.directive';
+import { UserRegisterComponent } from './pages/account/user-register/user-register.component';
 
 @NgModule({
     declarations: [
@@ -101,6 +102,7 @@ import { IntersectionObserverDirective } from './shared/directives/intersection-
         UpdateCartQuanitityDirective,
         ShippingComponent,
         CheckoutComponent,
+        UserRegisterComponent,
     ],
     imports: [
         FormsModule,

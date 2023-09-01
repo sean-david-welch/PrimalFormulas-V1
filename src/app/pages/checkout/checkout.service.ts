@@ -30,4 +30,11 @@ export class CheckoutService {
 
         const res = await this.http.post('/api/create-payment-intent', payload);
     }
+
+    // async initializePaymentIntent(items): Promise<string> {
+    //     const response = await this.http
+    //         .post<{ clientSecret: string }>('/create-payment-intent', { items })
+    //         .toPromise();
+    //     return response.clientSecret;
+    // }
 }
