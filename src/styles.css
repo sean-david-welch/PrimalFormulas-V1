@@ -78,6 +78,12 @@ main {
 }
 
 /* Buttons */
+.btn {
+    @apply rounded-xl text-gray-200 py-2 px-10 bg-zinc-900 min-w-[150px];
+    @apply transition-all duration-700 ease-in-out;
+    @apply hover:bg-yellow-600 hover:text-zinc-900 hover:scale-105;
+}
+
 .buttons-grid {
     @apply mx-auto items-center;
 }
@@ -87,7 +93,6 @@ main {
 }
 
 /* Animations */
-
 .hidden {
     opacity: 0;
     transform: translateX(-100%);

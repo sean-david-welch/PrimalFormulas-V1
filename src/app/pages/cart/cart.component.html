@@ -1,1 +1,7 @@
-<p>cart works!</p>
+<div *ngIf="cartItems$ | async as cartItems">
+    <div *ngFor="let item of cartItems">
+        <p>{{ item.name }}</p>
+        <p>{{ item.price }}</p>
+        <button appRemoveFromCart [productId]="item.id">Remove</button>
+    </div>
+</div>

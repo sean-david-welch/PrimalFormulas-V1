@@ -18,7 +18,10 @@
                 <div class="buttons-grid">
                     <app-nav-button [link]="getProductLink(product.id)" text=" View Product"
                         iconName="arrow-right" />
-                    <app-nav-button link="/" text="Add To Cart" iconName="cart-plus" />
+                    <button class="btn" [product]="product" appAddToCart>
+                        Add To Cart <fa-icon [icon]="cartPlus" />
+                    </button>
+
                 </div>
             </div>
         </div>

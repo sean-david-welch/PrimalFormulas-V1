@@ -51,6 +51,9 @@ import { CreateProductFormComponent } from './pages/products/product-form/produc
 import { DeleteButtonComponent } from './shared/components/delete-button/delete-button.component';
 import { RegisterComponent } from './pages/account/register/register.component';
 import { AboutFormComponent } from './pages/about/about-form/about-form.component';
+import { AddToCartDirective } from './shared/directives/add-to-cart.directive';
+import { cartReducer } from './lib/store/cart/cart.reducers';
+import { RemoveFromCartDirective } from './shared/directives/remove-from-cart.directive';
 
 @NgModule({
     declarations: [
@@ -85,6 +88,8 @@ import { AboutFormComponent } from './pages/about/about-form/about-form.componen
         DeleteButtonComponent,
         RegisterComponent,
         AboutFormComponent,
+        AddToCartDirective,
+        RemoveFromCartDirective,
     ],
     imports: [
         FormsModule,
@@ -93,7 +98,7 @@ import { AboutFormComponent } from './pages/about/about-form/about-form.componen
         AppRoutingModule,
         FontAwesomeModule,
         ReactiveFormsModule,
-        StoreModule.forRoot({ user: userReducer }),
+        StoreModule.forRoot({ user: userReducer, cart: cartReducer }),
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Product } from './products.models';
 import { ProductsService } from './products.service';
 import { Subscription } from 'rxjs';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-products',
@@ -9,6 +11,8 @@ import { Subscription } from 'rxjs';
     styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit, OnDestroy {
+    public cartPlus: IconDefinition = faCartPlus;
+
     public products: Product[] = [];
     public isLoading = <boolean>false;
 
