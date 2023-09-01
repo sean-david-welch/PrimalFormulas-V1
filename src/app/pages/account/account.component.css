@@ -12,3 +12,11 @@
 .account-section {
     @apply flex flex-col mx-20;
 }
+
+.account-section > * {
+    @apply my-5;
+}
+
+.account-section > :last-child {
+    @apply items-center mx-auto;
+}

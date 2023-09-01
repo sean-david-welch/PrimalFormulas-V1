@@ -23,12 +23,13 @@ export class UserRegisterComponent implements OnChanges {
             username: ['', Validators.required],
             email: ['', Validators.required],
             full_name: ['', Validators.required],
+            password: ['', Validators.required],
             disabled: [null],
             is_superuser: [false, Validators.required],
         });
     }
 
-    ngOnChanges(changes: SimpleChanges): void {
+    ngOnChanges(): void {
         if (this.selectedUser) this.form.patchValue(this.selectedUser);
     }
 

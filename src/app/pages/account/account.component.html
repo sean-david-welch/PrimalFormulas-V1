@@ -12,5 +12,7 @@
 
     <div class="account-section" *ngIf="isLoggedIn">
         <app-current-user (logoutEvent)="handleLogoutSuccess()" />
+
+        <app-user-register text="User Registration Form" mode="create" *isSuperUser />
     </div>
 </section>
