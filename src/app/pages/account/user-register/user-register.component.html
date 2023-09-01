@@ -1,1 +1,24 @@
-<p>user-register works!</p>
+<app-dialog text={{text}}>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form" method="dialog">
+        <app-nav-logo />
+
+        <div class="page-heading">
+            <h1 class="item-heading">User Registration Form:</h1>
+        </div>
+
+        <input id="username" type="text" formControlName="username" placeholder="Enter Username" />
+        <input id="email" type="text" formControlName="email" placeholder="Enter Email" />
+        <input id="full_name" type="text" formControlName="full_name"
+            placeholder="Enter Full Name" />
+        <select id="is_superuser" formControlName="is_superuser">
+            <option [ngValue]="true">True</option>
+            <option [ngValue]="false">False</option>
+        </select>
+
+
+
+
+        <app-nav-button buttonType="submit" formMethod="dialog" text="Submit Details"
+            iconName="arrow-right" />
+    </form>
+</app-dialog>

@@ -6,7 +6,6 @@ import { User } from 'src/app/lib/auth/auth.models';
 @Component({
     selector: 'app-user-register',
     templateUrl: './user-register.component.html',
-    styleUrls: ['./user-register.component.css'],
 })
 export class UserRegisterComponent implements OnChanges {
     @Input() text!: string;
