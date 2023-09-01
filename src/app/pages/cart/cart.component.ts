@@ -2,10 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, map } from 'rxjs';
 import { getCartItems } from 'src/app/lib/store/cart/cart.selectors';
-import { CartState } from 'src/app/lib/store/cart/cart.reducers';
-import { Product } from '../products/products.models';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import { CartProduct, CartState } from 'src/app/lib/store/cart/cart.reducers';
 
 @Component({
     selector: 'app-cart',
@@ -13,7 +10,7 @@ import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
     styleUrls: ['./cart.component.css'],
 })
 export class CartComponent {
-    cartItems$: Observable<Product[]>;
+    cartItems$: Observable<CartProduct[]>;
 
     constructor(private store: Store) {
         this.cartItems$ = this.store

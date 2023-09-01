@@ -1,12 +1,20 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { addProduct, removeProduct } from './cart.actions';
+import {
+    addProduct,
+    removeProduct,
+    updateProductQuantity,
+} from './cart.actions';
 import { Product } from 'src/app/pages/products/products.models';
 
-export interface CartState {
-    cart: Product[];
+export interface CartProduct extends Product {
+    quantity: number;
 }
 
-let initialCartData: Product[] = [];
+export interface CartState {
+    cart: CartProduct[];
+}
+
+let initialCartData: CartProduct[] = [];
 
 try {
     const cartFromStorage = localStorage.getItem('cart');
@@ -20,21 +28,47 @@ try {
 }
 
 export const initialCart: CartState = {
-    cart: initialCartData,
+    cart: initialCartData.map((product) => ({ ...product, quantity: 1 })),
 };
 
 const cartReducerInternal = createReducer(
     initialCart,
     on(addProduct, (state, { product }) => {
-        if (!product.id || !product.name || product.price <= 0) return state;
-        return { ...state, cart: [...state.cart, product] };
+        const existingProduct = state.cart.find(
+            (cartItem) => cartItem.id === product.id
+        );
+        if (existingProduct) {
+            return {
+                ...state,
+                cart: state.cart.map((cartItem) =>
+                    cartItem.id === product.id
+                        ? { ...cartItem, quantity: cartItem.quantity + 1 }
+                        : cartItem
+                ),
+            };
+        } else {
+            return {
+                ...state,
+                cart: [...state.cart, { ...product, quantity: 1 }],
+            };
+        }
     }),
+
+    on(updateProductQuantity, (state, { productId, newQuantity }) => {
+        return {
+            ...state,
+            cart: state.cart.map((item) =>
+                item.id === productId
+                    ? { ...item, quantity: newQuantity }
+                    : item
+            ),
+        };
+    }),
+
     on(removeProduct, (state, { productId }) => {
         return {
             ...state,
-            cart: state.cart.filter(
-                (product) => product.id !== productId && product.id
-            ),
+            cart: state.cart.filter((cartItem) => cartItem.id !== productId),
         };
     })
 );

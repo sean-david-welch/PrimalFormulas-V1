@@ -15,7 +15,8 @@
                 <h1 class="item-heading">{{ item.name }}: €{{ item.price }}</h1>
                 <div class="input-nav">
                     <label for="qauntity">Qauntity:</label>
-                    <input type="number" value="quantity" [defaultValue]="1">
+                    <input type="number" [value]="item.quantity" [appUpdateCartQuantity]="item.id">
+
                 </div>
                 <button class="btn" [productId]="item.id" appRemoveFromCart>
                     Remove Item<app-icons iconName="fa-trash" />
