@@ -65,6 +65,14 @@ async def create_user(user: UserDB):
     return result.inserted_id
 
 
+async def get_all_users():
+    users = []
+    cursor = users_collection.find({})
+    async for document in cursor:
+        users.append(User(**document))
+    return users
+
+
 async def get_user(username: str) -> User:
     user_data = await users_collection.find_one(
         {"username": username}

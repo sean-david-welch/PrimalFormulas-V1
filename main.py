@@ -55,6 +55,7 @@ from database import (
     put_product,
     delete_product,
     get_user,
+    get_all_users,
     create_user,
     update_user,
     delete_user,
@@ -181,7 +182,13 @@ async def get_about_id(id: str):
 ########################
 ###### AUTH CRUD #######
 ########################
-@app.post("/api/register")
+@app.get("/api/users")
+async def get_users():
+    response = await get_all_users()
+    return response
+
+
+@app.post("/api/users")
 async def register(user: UserCreate, current_user: User = Depends(get_current_user)):
     if not current_user.is_superuser:
         raise HTTPException(status_code=403, detail="Permission denied")
