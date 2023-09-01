@@ -39,6 +39,7 @@ main {
 /* Forms */
 .form {
     @apply flex flex-col bg-zinc-800 text-center px-10 items-center;
+    @apply rounded-2xl border-4 border-zinc-600;
 }
 
 .form > * {

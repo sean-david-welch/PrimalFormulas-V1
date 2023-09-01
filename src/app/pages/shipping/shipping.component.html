@@ -1,0 +1,21 @@
+<div class="shipping">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form" method="dialog">
+        <app-nav-logo />
+
+        <div class="page-heading">
+            <h1 class="item-heading">Shipping Form:</h1>
+        </div>
+
+        <input id="name" type="text" formControlName="name" placeholder="Enter Name" />
+        <input id="line1" type="text" formControlName="line1" placeholder="Enter Line-1" />
+        <input id="city" type="text" formControlName="city" placeholder="Enter City" />
+        <input id="state" type="text" formControlName="state" placeholder="Enter State" />
+        <input id="postal_code" type="text" formControlName="postal_code"
+            placeholder="Enter Postal Code" />
+        <input id="country" type="text" formControlName="country" placeholder="Enter Country" />
+        <input id="email" type="text" formControlName="email" placeholder="Enter Email" />
+
+        <app-nav-button buttonType="submit" formMethod="dialog" text="Submit Details"
+            iconName="arrow-right" />
+    </form>
+</div>

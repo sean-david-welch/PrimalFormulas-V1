@@ -10,6 +10,7 @@ import { ProductDetailComponent } from './pages/products/product-detail/product-
 import { AccountComponent } from './pages/account/account.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ShippingComponent } from './pages/shipping/shipping.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
     { path: 'cart', component: CartComponent },
     { path: 'products', component: ProductsComponent },
     { path: 'products/:id', component: ProductDetailComponent },
+    { path: 'shipping', component: ShippingComponent },
     { path: 'not-found', component: NotFoundComponent },
     { path: '**', redirectTo: '/not-found' },
 ];
