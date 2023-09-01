@@ -11,8 +11,6 @@ import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
     styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit, OnDestroy {
-    public cartPlus: IconDefinition = faCartPlus;
-
     public products: Product[] = [];
     public isLoading = <boolean>false;
 

@@ -4,6 +4,8 @@ import { Observable, map } from 'rxjs';
 import { getCartItems } from 'src/app/lib/store/cart/cart.selectors';
 import { CartState } from 'src/app/lib/store/cart/cart.reducers';
 import { Product } from '../products/products.models';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-cart',

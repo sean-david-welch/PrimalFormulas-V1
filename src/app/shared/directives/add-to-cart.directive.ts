@@ -17,7 +17,7 @@ export class AddToCartDirective {
 
     constructor(private store: Store) {}
 
-    @HostListener('click', ['$event']) handleClick(event: Event) {
+    @HostListener('click') handleClick() {
         this.store.dispatch(addProduct({ product: this.product }));
     }
 }

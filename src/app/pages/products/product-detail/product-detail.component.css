@@ -37,5 +37,5 @@
 }
 
 .input-nav input {
-    @apply w-[10rem] mx-auto my-2 bg-zinc-800 border-2 border-yellow-500 rounded-xl text-center;
+    @apply w-[10rem] mx-auto my-2 bg-zinc-800 border-2 border-yellow-500 rounded-md text-center;
 }

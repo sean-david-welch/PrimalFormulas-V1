@@ -54,6 +54,7 @@ import { AboutFormComponent } from './pages/about/about-form/about-form.componen
 import { AddToCartDirective } from './shared/directives/add-to-cart.directive';
 import { cartReducer } from './lib/store/cart/cart.reducers';
 import { RemoveFromCartDirective } from './shared/directives/remove-from-cart.directive';
+import { IconsComponent } from './shared/components/icons/icons.component';
 
 @NgModule({
     declarations: [
@@ -90,6 +91,7 @@ import { RemoveFromCartDirective } from './shared/directives/remove-from-cart.di
         AboutFormComponent,
         AddToCartDirective,
         RemoveFromCartDirective,
+        IconsComponent,
     ],
     imports: [
         FormsModule,
