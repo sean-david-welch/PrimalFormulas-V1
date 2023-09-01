@@ -41,3 +41,11 @@
 .input-nav input {
     @apply w-[10rem] mx-auto my-2 bg-zinc-800 border-2 border-yellow-500 rounded-md text-center;
 }
+
+.checkout {
+    @apply flex flex-col items-center;
+}
+
+.checkout > * {
+    @apply my-2;
+}

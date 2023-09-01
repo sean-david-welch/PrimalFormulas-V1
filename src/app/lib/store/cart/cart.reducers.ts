@@ -28,11 +28,12 @@ try {
 }
 
 export const initialCart: CartState = {
-    cart: initialCartData.map((product) => ({ ...product, quantity: 1 })),
+    cart: initialCartData,
 };
 
 const cartReducerInternal = createReducer(
     initialCart,
+
     on(addProduct, (state, { product }) => {
         const existingProduct = state.cart.find(
             (cartItem) => cartItem.id === product.id
