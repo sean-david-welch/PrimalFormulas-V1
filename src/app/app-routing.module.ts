@@ -11,6 +11,7 @@ import { AccountComponent } from './pages/account/account.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ShippingComponent } from './pages/shipping/shipping.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
     { path: 'products', component: ProductsComponent },
     { path: 'products/:id', component: ProductDetailComponent },
     { path: 'shipping', component: ShippingComponent },
+    { path: 'checkout', component: CheckoutComponent },
     { path: 'not-found', component: NotFoundComponent },
     { path: '**', redirectTo: '/not-found' },
 ];

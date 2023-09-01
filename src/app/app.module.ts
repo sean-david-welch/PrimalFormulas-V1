@@ -12,6 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 // NgRx
 import { StoreModule } from '@ngrx/store';
 import { userReducer } from './lib/store/user/user.reducers';
+import { cartReducer } from './lib/store/cart/cart.reducers';
+import { cutomerReducer } from './lib/store/customer/customer.reducers';
 
 //Pages
 import { AboutComponent } from './pages/about/about.component';
@@ -40,23 +42,25 @@ import { DisplaysComponent } from './pages/home/displays/displays.component';
 import { BenefitItemComponent } from './pages/home/displays/benefit-item/benefit-item.component';
 import { IconLinkComponent } from './shared/components/layout/sidebar/icon-link/icon-link.component';
 
-//Directives
-import { IntersectionObserverDirective } from './shared/directives/intersection-observer.directive';
+// Componentns
 import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loading-spinner.component';
 import { LoginFormComponent } from './pages/account/login-form/login-form.component';
 import { CurrentUserComponent } from './pages/account/current-user/current-user.component';
-import { SuperUserDirective } from './lib/auth/auth.directive';
 import { DialogComponent } from './shared/components/dialog/dialog.component';
 import { CreateProductFormComponent } from './pages/products/product-form/product-form.component';
 import { DeleteButtonComponent } from './shared/components/delete-button/delete-button.component';
 import { RegisterComponent } from './pages/account/register/register.component';
-import { AboutFormComponent } from './pages/about/about-form/about-form.component';
-import { AddToCartDirective } from './shared/directives/add-to-cart.directive';
-import { cartReducer } from './lib/store/cart/cart.reducers';
-import { RemoveFromCartDirective } from './shared/directives/remove-from-cart.directive';
 import { IconsComponent } from './shared/components/icons/icons.component';
-import { UpdateCartQuanitityDirective } from './shared/directives/update-cart-quanitity.directive';
 import { ShippingComponent } from './pages/shipping/shipping.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { AboutFormComponent } from './pages/about/about-form/about-form.component';
+
+//Directives
+import { SuperUserDirective } from './lib/auth/auth.directive';
+import { AddToCartDirective } from './shared/directives/add-to-cart.directive';
+import { RemoveFromCartDirective } from './shared/directives/remove-from-cart.directive';
+import { UpdateCartQuanitityDirective } from './shared/directives/update-cart-quanitity.directive';
+import { IntersectionObserverDirective } from './shared/directives/intersection-observer.directive';
 
 @NgModule({
     declarations: [
@@ -96,6 +100,7 @@ import { ShippingComponent } from './pages/shipping/shipping.component';
         IconsComponent,
         UpdateCartQuanitityDirective,
         ShippingComponent,
+        CheckoutComponent,
     ],
     imports: [
         FormsModule,
