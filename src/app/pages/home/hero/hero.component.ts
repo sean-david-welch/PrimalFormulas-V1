@@ -16,7 +16,7 @@ export class HeroComponent implements OnInit {
 
     ngOnInit(): void {
         this.isLoading = true;
-        this.staticService.fetchStaticContent('hero').subscribe((response) => {
+        this.staticService.fetchStaticContent('Hero').subscribe((response) => {
             this.data = response;
             this.isLoading = false;
         });

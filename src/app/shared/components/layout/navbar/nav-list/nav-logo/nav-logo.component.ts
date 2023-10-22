@@ -22,7 +22,7 @@ export class NavLogoComponent implements OnInit {
 
     ngOnInit(): void {
         this.isLoading = true;
-        this.staticService.fetchStaticContent('logo').subscribe((response) => {
+        this.staticService.fetchStaticContent('Logo').subscribe((response) => {
             this.data = response;
             this.isLoading = false;
         });

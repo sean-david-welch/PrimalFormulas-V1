@@ -11,7 +11,7 @@ import { api_base_url } from '../utils/config';
 })
 export class StaticService {
     private constructUrl(name: string): string {
-        return `${api_base_url}/content/${name}`;
+        return `${api_base_url}/static/${name}`;
     }
 
     private cache: Record<string, Observable<Static>> = {};
