@@ -1,4 +1,5 @@
-export const api_base_url = 'https://www.primalformulas.ie/api';
+export const api_base_url =
+    'https://primalformulas-mongo-refactor-production.up.railway.app/api';
 
 export const constructUrl = (endpoint: string, params?: string): string => {
     return params
