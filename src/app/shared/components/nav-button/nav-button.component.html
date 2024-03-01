@@ -1,0 +1,13 @@
+<button class="nav-button" [attr.type]="buttonType ?? null" [attr.formmethod]="formMethod ?? null"
+    (click)="onClick.emit()">
+
+    <ng-container *ngIf="link">
+        <a class="nav-link" [routerLink]="[link]">
+            {{text}} <fa-icon [icon]="icon" class="icon" />
+        </a>
+    </ng-container>
+
+    <ng-container *ngIf="!link">
+        {{text}} <fa-icon [icon]="icon" class="icon" />
+    </ng-container>
+</button>

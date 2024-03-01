@@ -1,0 +1,4 @@
+<div class="hero">
+    <app-loading-spinner *ngIf="isLoading" />
+    <video [src]="data.content" autoplay loop playsInline preload="auto" *ngIf="!isLoading"></video>
+</div>

@@ -1,0 +1,19 @@
+<section id="users">
+    <div class="page-heading">
+        <h1 class="section-heading">Users:</h1>
+    </div>
+    <div class="users">
+
+        <div class="user-card" *ngFor="let user of users">
+            <div *ngFor="let field of filterAndOrderFields(user)">
+                <h1>{{field.key}}: {{field.value}}</h1>
+            </div>
+
+            <div class="buttons-grid">
+                <app-user-register text="Update User" mode="update" [selectedUser]="user" />
+                <app-delete-button text="Delete User" endpoint="users" returnPath="/account"
+                    [id]="user.id" />
+            </div>
+        </div>
+    </div>
+</section>

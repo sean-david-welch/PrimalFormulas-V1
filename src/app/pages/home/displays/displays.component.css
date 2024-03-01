@@ -1,0 +1,26 @@
+.benefits-home {
+    @apply flex flex-col justify-center mx-auto items-center;
+    @apply my-16 mx-4 p-4;
+    @apply border-t-2 border-b-2 border-zinc-950;
+}
+
+.benefits-home h1 {
+    @apply my-6;
+}
+
+.benefits-list {
+    @apply grid grid-cols-4 gap-16 w-[90%];
+    @apply justify-items-center items-center;
+}
+
+.benefits-list:nth-child(2) {
+    animation-delay: 300ms;
+}
+
+.benefits-list:nth-child(3) {
+    animation-delay: 600ms;
+}
+
+.benefits-list:nth-child(4) {
+    animation-delay: 900ms;
+}

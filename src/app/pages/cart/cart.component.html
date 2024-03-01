@@ -1,0 +1,32 @@
+<section id="cart">
+    <div class="page-heading">
+        <h1 class="section-heading">Shopping Cart:</h1>
+        <app-nav-button link="/products" text="Continue Shopping" iconName="bracket-right" />
+    </div>
+
+
+    <div *ngIf="cartItems$ | async as cartItems" class="cart">
+        <h1 class="item-heading">Cart Items:</h1>
+
+        <div *ngFor="let item of cartItems" class="cart-item">
+            <a [routerLink]="['/products', item.id]"><img src="{{item.image}}"
+                    alt="product-image"></a>
+            <div class="cart-item-info">
+                <h1 class="item-heading">{{ item.name }}: €{{ item.price }}</h1>
+                <div class="input-nav">
+                    <label for="qauntity">Qauntity:</label>
+                    <input type="number" [value]="item.quantity" [appUpdateCartQuantity]="item.id">
+
+                </div>
+                <button class="btn" [productId]="item.id" appRemoveFromCart>
+                    Remove Item<app-icons iconName="fa-trash" />
+                </button>
+            </div>
+        </div>
+
+        <div class="checkout">
+            <h1 class="item-heading">Total: €{{ cartSubtotal$ | async }}</h1>
+            <app-nav-button link="/shipping" text="Checkout" iconName="bracket-right" />
+        </div>
+    </div>
+</section>

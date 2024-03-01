@@ -1,0 +1,7 @@
+.hero {
+    @apply min-w-full h-screen;
+}
+
+.hero video {
+    @apply w-screen h-full object-cover;
+}

@@ -1,0 +1,32 @@
+<section id="products">
+    <app-loading-spinner *ngIf="isLoading" />
+
+    <div class="products" *ngIf="!isLoading">
+        <div class="page-heading">
+            <h1 class="section-heading">Our Products:</h1>
+            <app-nav-button link="/products" text="Shop Primal Formulas" iconName="arrow-right" />
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card hidden" *ngFor="let product of products"
+                appIntersectionObserver>
+                <h1>{{product.name}}</h1>
+                <a [routerLink]="['/products', product.id]"><img src="{{product.image}}"
+                        alt="product-image"></a>
+
+                <h1>€{{product.price}}</h1>
+                <div class="buttons-grid">
+                    <app-nav-button [link]="getProductLink(product.id)" text=" View Product"
+                        iconName="arrow-right" />
+                    <button class="btn" [product]="product" appAddToCart>
+                        Add To Cart<app-icons iconName="cart-plus" />
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+        <app-product-form text="Product Form" mode="create" *isSuperUser />
+    </div>
+
+</section>
