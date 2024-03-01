@@ -1,0 +1,79 @@
+#login {
+    min-height: 100vh;
+}
+
+#login .logo-heading,
+#form .logo-heading,
+#payment-form .logo-heading {
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 10rem;
+    padding: 1rem;
+    border: 2px solid var(--grey-color);
+    border-radius: 0.5rem;
+    background-color: var(--dark-color);
+}
+
+#form .input-box label {
+    display: flex;
+    margin: auto 0.1rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+}
+
+#form .input-box input {
+    width: 20rem;
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 1.15rem;
+    border-radius: 0.5rem;
+    border: 0.2rem solid var(--grey-color);
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    transition: all 600ms ease-in-out;
+}
+
+#login #form button {
+    margin: 2rem auto;
+    font-size: 1.5rem;
+}
+
+#login .current-user {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 15rem;
+    padding: 2rem;
+    border: 2px solid var(--grey-color);
+    border-radius: 0.5rem;
+    background-color: var(--dark-color);
+    transition: all 600ms ease-in-out;
+}
+
+#login .current-user > * {
+    transition: all 600ms ease-in-out;
+}
+
+#login .current-user p {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+#login .current-user:hover {
+    border: 2px solid var(--gold-color);
+    transform: scale(1.01);
+}
+
+#login .current-user button {
+    margin: 1rem auto;
+    font-size: 1.5rem;
+}
